@@ -67,6 +67,13 @@ exports.getOrders = (req, res, next) => {
   });
 };
 
+exports.Login = (req, res, next) => {
+  res.render("shop/login", {
+    path: "/login",
+    pageTitle: "Bejelentkezés",
+  });
+};
+
 exports.getCheckout = (req, res, next) => {
   res.render("shop/checkout", {
     path: "/checkout",
