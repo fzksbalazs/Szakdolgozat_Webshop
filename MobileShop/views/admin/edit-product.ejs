@@ -1,0 +1,39 @@
+<%- include('../includes/header.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <section class="addProduct">
+                <form class="product-form" action="/admin/<%- editing?'edit-product':'add-product' %>" method="POST">
+                    <h1>Termék hozzáadása</h1>
+                    <label for="title">Termék neve</label>
+                    <div>                       
+                        <input type="text" name="title" id="title" value="<%- editing?product.title:'' %>">
+                    </div>
+                    <label for="imageUrl">Termék Képének URL-je</label>
+                    <div>
+                        
+                        <input type="text" name="imageUrl" id="imageUrl" value="<%- editing?product.imageUrl:'' %>">
+                    </div>
+                    <label for="price">Termék ára</label>
+                    <div>
+                        
+                        <input type="number" name="price" id="price" step="0.01" value="<%- editing?product.price:'' %>">
+                    </div>
+                    <label for="description">Termék leirása</label>
+                    <div>
+                        
+                        <textarea name="description" id="description" rows="5"><%- editing?product.description:'' %></textarea>
+                    </div>
+
+                    <% if (editing) { %>
+                        <input type="hidden" name="productId" value="<%= product.id %>">
+                    <% } %>
+
+                    <button class="productBTN" type="submit">
+                        <%- editing?'Update Product':'Add Product' %>
+                    </button>
+                </form>
+            </section>
+            <%- include('../includes/end.ejs') %>
