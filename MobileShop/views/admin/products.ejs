@@ -8,8 +8,9 @@
             <section class="products">
                 <% if (prods.length> 0) { %>
                     <div class="container">
+                        <div class="row">
                         <% for (let product of prods) { %>
-                            <div class="card product-item">
+                            <div class="card " style="width: 20rem;">
                                 <div>
                                     <h1 class="productTitle">
                                         <%= product.title %>
@@ -36,6 +37,7 @@
                                 </div>
                             </div>
                             <% } %>
+                    </div>
                     </div>
                     <% } else { %>
                         <h1>No Products Found!</h1>
