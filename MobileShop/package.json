@@ -19,6 +19,7 @@
         "ejs": "^2.6.1",
         "express": "^4.17.2",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^6.2.1"
+        "mongoose": "^6.2.1",
+        "stripe": "^8.202.0"
     }
 }
