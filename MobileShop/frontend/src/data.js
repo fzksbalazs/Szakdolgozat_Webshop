@@ -4,73 +4,73 @@ export const sliderItems = [
       img: "https://gosport.hu.net/wp-content/uploads/2021/11/ddpai-mini-full-hd-1080p-30fps-videorogzitocontent_6-1024x652.jpg",
       title: "PRÉMIUM TELEFONOK",
       desc: "PRÉMIUM TELEFONOK, GARANÁCIÁVAL!",
-      bg: "f5fafd",
+      bg: "linear-gradient(to left, #ece9e6, #ffffff);",
     },
     {
       id: 2,
       img: "https://cdn.wallpapersafari.com/79/70/74E9fO.jpg",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "",
+      title: "LOREM IPSUM",
+      desc: "LOREM IPSUM ASD DESADA",
+      bg: "linear-gradient(to left, #00c6ff, #0072ff)",
     },
     {
       id: 3,
       img: "https://cdn.prohardver.hu/dl/cnt/2018-11/149070/overview01.jpg",
-      title: "LOUNGEWEAR LOVE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
+      title: "LOREM IPSUM",
+      desc: "LOREM IPSUM ASD DESADA",
+      bg: "linear-gradient(to right, #000428, #004e92);",
     },
   ];
 
   export const categories = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
+      img: "https://www.cnet.com/a/img/iJxo9AIxiXHqVoqm6nGISKtKwPI=/2020/08/18/b7168aea-9f7e-47bb-9f31-4cb8ad92fbc7/lg-note-20-ultra-5g-iphone-11-se-google-pixel-4a-lg-velvet-6133.jpg",
+      title: "TELEFONOK",
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "LOUNGEWEAR LOVE",
+      img: "https://assets-prd.ignimgs.com/2022/01/07/asus-rog-flow-z13-1641594582432.jpg",
+      title: "LAPTOPOK",
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "LIGHT JACKETS",
+      img: "https://lemonyblog.com/wp-content/uploads/2021/07/5-Cool-and-Funky-Tech-Accessories.jpg",
+      title: "KIEGÉSZITŐK",
     },
   ];
 
   export const popularProducts = [
     {
       id:1,
-      img:"https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+      img:"https://purepng.com/public/uploads/large/samsung-galaxy-s10-prism-front-6bx.png",
     },
     {
       id:2,
-      img:"https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+      img:"https://dlcdnwebimgs.asus.com/gain/416908ce-197b-4c41-8ef0-a03596861c62/w800",
     },
     {
       id:3,
-      img:"https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+      img:"https://www.nicepng.com/png/full/298-2982212_apple-airpods-png.png",
     },
     {
       id:4,
-      img:"https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+      img:"https://dlcdnwebimgs.asus.com/gain/416908ce-197b-4c41-8ef0-a03596861c62/w800",
     },
     {
       id:5,
-      img:"https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+      img:"https://purepng.com/public/uploads/large/samsung-galaxy-s10-prism-front-6bx.png",
     },
     {
       id:6,
-      img:"https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+      img:"https://www.nicepng.com/png/full/298-2982212_apple-airpods-png.png",
     },
     {
       id:7,
-      img:"https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+      img:"https://dlcdnwebimgs.asus.com/gain/416908ce-197b-4c41-8ef0-a03596861c62/w800",
     },
     {
       id:8,
-      img:"https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+      img:"https://purepng.com/public/uploads/large/samsung-galaxy-s10-prism-front-6bx.png",
     },
   ]
