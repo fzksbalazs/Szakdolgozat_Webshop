@@ -27,16 +27,19 @@ export const sliderItems = [
       id: 1,
       img: "https://www.cnet.com/a/img/iJxo9AIxiXHqVoqm6nGISKtKwPI=/2020/08/18/b7168aea-9f7e-47bb-9f31-4cb8ad92fbc7/lg-note-20-ultra-5g-iphone-11-se-google-pixel-4a-lg-velvet-6133.jpg",
       title: "TELEFONOK",
+      cat: "telefon"
     },
     {
       id: 2,
       img: "https://assets-prd.ignimgs.com/2022/01/07/asus-rog-flow-z13-1641594582432.jpg",
       title: "LAPTOPOK",
+      cat:"laptop"
     },
     {
       id: 3,
       img: "https://lemonyblog.com/wp-content/uploads/2021/07/5-Cool-and-Funky-Tech-Accessories.jpg",
       title: "KIEGÉSZITŐK",
+      cat:"kiegészitők"
     },
   ];
 
