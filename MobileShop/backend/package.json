@@ -1,0 +1,25 @@
+{
+    "name": "beadando",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js",
+        "start-server": "node app.js"
+    },
+    "author": "Fazekas Balázs, Meronka Patrik",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^1.19.4"
+    },
+    "dependencies": {
+        "crypto-js": "^4.1.1",
+        "dotenv": "^16.0.0",
+        "ejs": "^2.6.1",
+        "express": "^4.17.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.2.1",
+        "stripe": "^8.202.0"
+    }
+}

@@ -9,10 +9,12 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
 `;
 const Title = styled.h1`
   font-size: 70px;
   margin-bottom: 20px;
+  ${mobile({ textalign: "center" })}
 `;
 
 const Desc = styled.div`
