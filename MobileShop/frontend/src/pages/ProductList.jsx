@@ -36,7 +36,9 @@ const Select = styled.select`
   margin-right: 20px;
   ${mobile({ margin: "10px 0px" })}
 `;
-const Option = styled.option``;
+const Option = styled.option`
+
+`;
 
 const ProductList = () => {
   const location = useLocation();
@@ -61,17 +63,19 @@ const ProductList = () => {
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select name="storage" onChange={handleFilters}>
-            <Option disabled>storage</Option>
-            <Option>125</Option>
-            <Option>256</Option>
+          <Select name="brand" onChange={handleFilters} >
+            <Option disabled  >Brand</Option>
+            <Option>Samsung</Option>
+            <Option>Apple</Option>
+            <Option>Asus</Option>
                     
           </Select>
           <Select name="color" onChange={handleFilters}>
-            <Option disabled >Color</Option>
+            <Option disabled>Color</Option>
             <Option>white</Option>
             <Option>black</Option>
-            <Option>gray</Option>        
+            <Option>gray</Option>   
+            <Option>gold</Option>     
           </Select>
         </Filter>
         <Filter>
