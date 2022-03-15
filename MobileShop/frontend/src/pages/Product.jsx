@@ -8,8 +8,7 @@ import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
-// import { addProduct } from "../redux/cartRedux";
-// import { useDispatch } from "react-redux";
+
 
 const Container = styled.div``;
 
@@ -124,7 +123,10 @@ const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
 
+
+ 
 
 
   useEffect(() => {
@@ -136,6 +138,16 @@ const Product = () => {
     };
     getProduct();
   }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  
 
 
 
@@ -171,11 +183,11 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove  />
-              <Amount>1</Amount>
-              <Add  />
+              <Remove style={{cursor:"pointer"}} onClick={() => handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <Add style={{cursor:"pointer"}} onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button >ADD TO CART</Button>
+            <Button   >ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
