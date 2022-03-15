@@ -8,6 +8,8 @@ import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 
 const Container = styled.div``;
@@ -73,6 +75,7 @@ const FilterColor = styled.div`
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;
+  border: 1px solid black;
 `;
 
 const FilterSize = styled.select`
@@ -124,6 +127,9 @@ const Product = () => {
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [storage, setStorage] = useState("");
+  const dispatch = useDispatch();
 
 
  
@@ -148,7 +154,11 @@ const Product = () => {
   };
 
   
-
+  const handleClick = () => {
+    dispatch(
+      addProduct({...product, quantity, color, storage})
+    );
+  };
 
 
   return (
@@ -168,13 +178,13 @@ const Product = () => {
               <FilterTitle>Color</FilterTitle>
           
               {product.color?.map((c) => (
-                <FilterColor color={c} key={c} />
+                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
               ))}
               
             </Filter>
             <Filter>
               <FilterTitle>Storage</FilterTitle>
-              <FilterSize>
+              <FilterSize onChange={(e) => setStorage(e.target.value)}>
               {product.storage?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
@@ -187,7 +197,7 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add style={{cursor:"pointer"}} onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button   >ADD TO CART</Button>
+            <Button onClick={handleClick}   >ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
