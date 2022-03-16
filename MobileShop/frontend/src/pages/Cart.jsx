@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
 
-const KEY = "pk_test_51KTYWpB1bb1VrKRi8D6WQYnKbZ02r2Jp7evDytQUhbIatPZTSWs7An0BeVDTYzqVDM7DsDXoIcBeZwDmQXRaY2fe00pb87wOeq";
+const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
 
@@ -38,8 +38,6 @@ const Image = styled.img`
   ${mobile({ height: "40vh" })}
 `;
 
-
-
 const TopButton = styled.button`
   padding: 10px;
   font-weight: 600;
@@ -63,7 +61,6 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   ${mobile({ flexDirection: "column" })}
-
 `;
 
 const Info = styled.div`
@@ -80,8 +77,6 @@ const ProductDetail = styled.div`
   flex: 2;
   display: flex;
 `;
-
-
 
 const Details = styled.div`
   padding: 10px;
@@ -184,15 +179,13 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: 500,
         });
-        history.push("/success", {
-          stripeData: res.data,
-          products: cart, });
-      } catch {}
+        history.push("/success",);
+      } catch(err) {
+        console.log(err)
+      }
     };
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, history]);
-
-  
   return (
     <Container>
       <Navbar />
@@ -209,33 +202,37 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            {cart.products.map((product)=> (<Product>
-              <ProductDetail>
-                <Image src={product.img} />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> {product.title}
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> {product._id}
-                  </ProductId>     
-                  <b>Color:</b>
-                  <ProductColor color={product.color}/>
-                  <ProductSize>
-                    <b>Storage:</b> {product.storage}
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>{product.quantity}</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ {product.price* product.quantity}</ProductPrice>
-              </PriceDetail>
-            </Product>))}
-            <Hr />          
+            {cart.products.map((product) => (
+              <Product>
+                <ProductDetail>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {product.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b> {product._id}
+                    </ProductId>
+                    <b>Color:</b>
+                    <ProductColor color={product.color} />
+                    <ProductSize>
+                      <b>Storage:</b> {product.storage}
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>{product.quantity}</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>
+                    $ {product.price * product.quantity}
+                  </ProductPrice>
+                </PriceDetail>
+              </Product>
+            ))}
+            <Hr />
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>

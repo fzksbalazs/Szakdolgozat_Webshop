@@ -24,7 +24,7 @@ const App = () => {
         </Route>
         <Route path="/products/:category">
           <ProductList />
-        </Route>a
+        </Route>
         <Route path="/product/:id">
           <Product />
         </Route>
@@ -33,7 +33,7 @@ const App = () => {
         </Route>
         <Route path="/success">
           <Success />
-        </Route>    
+        </Route>
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
         <Route path="/register">
           {user ? <Redirect to="/" /> : <Register />}
