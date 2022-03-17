@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 60px;
-  ${mobile({ height: "50px" })}
+  ${mobile({ height: "70px" })}
   
 `;
 
@@ -38,6 +38,7 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  ${mobile({ marginLeft: "5px" })}
 `;
 
 const Input = styled.input`
