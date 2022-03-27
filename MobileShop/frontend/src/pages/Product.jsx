@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Container = styled.div``;
@@ -130,6 +130,7 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [storage, setStorage] = useState("");
   const dispatch = useDispatch();
+  const user = useSelector(state=> state.user.currentUser);
 
 
  
@@ -196,8 +197,8 @@ const Product = () => {
               <Remove style={{cursor:"pointer"}} onClick={() => handleQuantity("dec")} />
               <Amount>{quantity}</Amount>
               <Add style={{cursor:"pointer"}} onClick={() => handleQuantity("inc")} />
-            </AmountContainer>
-            <Button onClick={handleClick}   >ADD TO CART</Button>
+            </AmountContainer>          
+            <Button onClick={handleClick} style = {!user ? {display:"none"} : {}}   >ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

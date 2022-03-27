@@ -99,9 +99,12 @@ const Navbar = () => {
           </Link>
         </Center>
         <Right>
-         
-          <MenuItem style={user ? {display:"none"} : {}}>REGISTER</MenuItem>
+         <Link style={{textDecoration: 'none'}} to={'/register'}>
+          <MenuItem  style={user ? {display:"none"} : {}}>REGISTER</MenuItem>
+          </Link >
+          <Link style={{textDecoration: 'none'}} to={'/login'}>
           <MenuItem style={user ? {display:"none"} : {}}>SIGN IN</MenuItem>
+          </Link>
         
           <MenuItem style={!user ? {display:"none"} : {}} onClick={(e) => handleLogout(e)}>LOGOUT</MenuItem>
           <Link to="/cart">
