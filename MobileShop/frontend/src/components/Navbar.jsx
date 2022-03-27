@@ -4,7 +4,8 @@ import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/userRedux";
 
 const Container = styled.div`
   height: 60px;
@@ -71,6 +72,16 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const user = useSelector(state=> state.user.currentUser);
+  const dispatch = useDispatch();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    
+
+  }
+
+
   const quantity = useSelector(state=>state.cart.quantity)
   return (
     <Container>
@@ -88,8 +99,11 @@ const Navbar = () => {
           </Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+         
+          <MenuItem style={user ? {display:"none"} : {}}>REGISTER</MenuItem>
+          <MenuItem style={user ? {display:"none"} : {}}>SIGN IN</MenuItem>
+        
+          <MenuItem style={!user ? {display:"none"} : {}} onClick={(e) => handleLogout(e)}>LOGOUT</MenuItem>
           <Link to="/cart">
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">
