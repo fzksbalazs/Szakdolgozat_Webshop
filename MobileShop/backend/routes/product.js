@@ -10,8 +10,7 @@ const router = require("express").Router();
 //CREATE
 
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  
   const newProduct = new Product(req.body);
 
   try {
@@ -24,8 +23,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 
 //UPDATE
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
