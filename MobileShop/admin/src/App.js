@@ -13,13 +13,15 @@ import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 
 function App() {
-  const admin = useSelector((state) => state.user.currentUser.isAdmin);
+  localStorage.clear();
+   const admin = useSelector((state) => state.user.currentUser.isAdmin);
 
   return (
     <Router>
       <Switch>
       <Route path="/login">
-          <Login />
+        
+          <Login  />
         </Route>
       { admin && (
         <>
