@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { userRequest } from "../requestMethods";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -8,8 +10,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://wallpaperaccess.com/full/279547.jpg")
-      center;
+    url("https://wallpaperaccess.com/full/279547.jpg") center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -45,6 +46,7 @@ const Agreement = styled.span`
   margin: 20px 0px;
 `;
 
+
 const Button = styled.button`
   width: 40%;
   border: none;
@@ -54,25 +56,77 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const Error = styled.span`
+  color: red;
+`;
+
+
 const Register = () => {
+  const [data, setData] = useState({
+    username: "",
+		email: "",
+		password: "",
+  });
+
+  const [error, setError] = useState("");
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data: res } = await userRequest.post('/auth/register', data);
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   return (
+
     <Container>
+      
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+        <Form onSubmit={handleSubmit}>
+          <Input
+            placeholder="username"
+            name="username"
+            onChange={handleChange}
+            value={data.username}
+            required
+          />
+          <Input
+            placeholder="email"
+            name="email"
+            onChange={handleChange}
+            value={data.email}
+            required
+          />
+          <Input
+            placeholder="password"
+            name="password"
+            onChange={handleChange}
+            value={data.password}
+            required
+          />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
+            {error && <Error>{error}  </Error>}
           </Agreement>
-          <Button>CREATE</Button>
+
+          <Button type="submit">CREATE</Button>
         </Form>
       </Wrapper>
+      
     </Container>
   );
 };
