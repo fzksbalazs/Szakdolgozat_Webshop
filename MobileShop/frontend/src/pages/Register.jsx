@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { userRequest } from "../requestMethods";
 import { mobile } from "../responsive";
+import { useHistory } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100vw;
@@ -27,6 +28,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
+  text-align: center;
 `;
 
 const Form = styled.form`
@@ -60,6 +62,13 @@ const Error = styled.span`
   color: red;
 `;
 
+const Link = styled.a`
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 
 const Register = () => {
   const [data, setData] = useState({
@@ -67,7 +76,7 @@ const Register = () => {
 		email: "",
 		password: "",
   });
-
+  const history = useHistory();
   const [error, setError] = useState("");
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -78,6 +87,7 @@ const Register = () => {
     try {
       const { data: res } = await userRequest.post('/auth/register', data);
       console.log(res.message);
+      history.push("/login");
     } catch (error) {
       if (
         error.response &&
@@ -122,9 +132,9 @@ const Register = () => {
             data in accordance with the <b>PRIVACY POLICY</b>
             {error && <Error>{error}  </Error>}
           </Agreement>
-
           <Button type="submit">CREATE</Button>
         </Form>
+        <Link href="/login">I ALREADY HAVE AN ACCOUNT</Link>
       </Wrapper>
       
     </Container>
