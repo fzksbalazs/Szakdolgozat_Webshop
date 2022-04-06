@@ -39,7 +39,7 @@ const Login = () => {
         placeholder="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Link to={"/"}>
+      <Link to={"/welcome"}>
       <button onClick={handleClick} style={{ padding: 10, width:100 }}>
         Login
       </button>

@@ -13,13 +13,22 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Általános</h3>
           <ul className="sidebarList">
-            <Link to="/" className="link">
-            <li className="sidebarListItem active">
+            <Link to="/welcome" className="link">
+            <li className="sidebarListItem">
               <LineStyle className="sidebarIcon" />
-              Home
+              Welcome Page
             </li>
             </Link>        
           </ul>
+          <ul className="sidebarList">
+            <Link to="/analytics" className="link">
+            <li className="sidebarListItem">
+              <LineStyle className="sidebarIcon" />
+              Analytics
+            </li>
+            </Link>        
+          </ul>
+          
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Hozzáadás/Törlés/Szerkesztés</h3>

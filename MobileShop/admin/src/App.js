@@ -1,7 +1,7 @@
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
-import Home from "./pages/home/Home";
+import Analytics from "./pages/analytics/analytics";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
@@ -11,6 +11,7 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
+import Welcome from "./pages/welcome/welcome";
 
 function App() {
   
@@ -28,9 +29,11 @@ function App() {
         <Topbar />
       <div className="container">
         <Sidebar />
-        
-          <Route exact path="/">
-            <Home />
+        <Route path="/welcome">
+            <Welcome />
+          </Route>
+          <Route exact path="/analytics">
+            <Analytics />
           </Route>
           <Route path="/users">
             <UserList />

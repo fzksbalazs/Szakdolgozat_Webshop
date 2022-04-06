@@ -6,6 +6,7 @@ import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Container = styled.div`
   height: 60px;
@@ -71,12 +72,14 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
+
 const Navbar = () => {
+  const history = useHistory();
   const user = useSelector(state=> state.user.currentUser);
   const dispatch = useDispatch();
   const handleLogout = (e) => {
-    e.preventDefault();
     dispatch(logout());
+    history.push("/");
     
 
   }
