@@ -1,5 +1,6 @@
 import { loginFailure, loginStart, loginSuccess } from "./userRedux";
 import { publicRequest, userRequest } from "../requestMethods";
+import {  useHistory } from "react-router-dom";
 import {
   getProductFailure,
   getProductStart,

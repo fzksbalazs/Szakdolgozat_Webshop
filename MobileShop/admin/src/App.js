@@ -12,6 +12,7 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 import Welcome from "./pages/welcome/welcome";
+import { Redirect } from "react-router-dom";
 
 function App() {
   
@@ -21,9 +22,12 @@ function App() {
   return (
     <Router>
       <Switch>
+        
       <Route path="/login">       
           <Login  />
         </Route>
+        {!admin && <Redirect to="/login" />}
+
       { admin && (
         <>
         <Topbar />

@@ -72,7 +72,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isFetching, error } = useSelector((state) => state.user);
+  const { error } = useSelector((state) => state.user);
   const handleClick = (e) => {
     e.preventDefault(); //ne refreshelje az oldalt
     login(dispatch, { username, password });
@@ -85,7 +85,7 @@ const Login = () => {
         <Form>
           <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
           <Input type={"password"} placeholder="password"  onChange={(e) => setPassword(e.target.value)} />
-          <Button disabled={isFetching} onClick={handleClick} >LOGIN</Button>
+          <Button  onClick={handleClick} >LOGIN</Button>
           {error && <Error>Something went wrong...</Error>}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           

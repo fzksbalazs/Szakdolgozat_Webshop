@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 
 export default function Welcome() {
   const admin = useSelector((state) => state.user.currentUser)
+  
   return (
+    
     
     <div className="home">
 

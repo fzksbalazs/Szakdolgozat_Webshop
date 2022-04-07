@@ -4,15 +4,11 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../redux/userRedux";
 
 export default function Topbar() {
-
+  localStorage.clear();
   const dispatch = useDispatch();
   const handleLogout = (e) => {
-    localStorage.clear();
     dispatch(logout());
-    
-    
-
-    
+  
   }
 
   

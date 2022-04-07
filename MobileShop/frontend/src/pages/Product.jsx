@@ -160,7 +160,7 @@ const Product = () => {
       addProduct({...product, quantity, color, storage})
     );
   };
-
+  
 
   return (
     <Container>
