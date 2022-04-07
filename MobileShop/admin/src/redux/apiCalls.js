@@ -86,8 +86,8 @@ export const deleteUser = async (id, dispatch) => {
 export const updateProduct = async (id, product, dispatch) => {
   dispatch(updateProductStart());
   try {
-    // update
-    dispatch(updateProductSuccess({ id, product }));
+    const res = await userRequest.put(`/products/${id}`,product)
+    dispatch(updateProductSuccess( res.data ));
   } catch (err) {
     dispatch(updateProductFailure());
   }
@@ -107,7 +107,7 @@ export const updateUser= async (id, user, dispatch) => {
 export const addUser = async (user, dispatch) => {
   dispatch(addUserStart());
   try {
-    const res = await userRequest.post(`/users`, user);
+    const res = await userRequest.post(`/auth/register`, user);
     dispatch(addUserSuccess(res.data));
   } catch (err) {
     dispatch(addUserFailure());
