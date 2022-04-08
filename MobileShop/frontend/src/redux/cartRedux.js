@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import userRedux from "./userRedux";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -6,6 +7,7 @@ const cartSlice = createSlice({
     products: [],
     quantity: 0,
     total: 0,
+    
   },
   reducers: {
     addProduct: (state, action) => {
@@ -13,7 +15,9 @@ const cartSlice = createSlice({
       state.products.push(action.payload);
       state.total += action.payload.price * action.payload.quantity;
     },
+    
   },
+  
 });
 
 export const { addProduct } = cartSlice.actions;

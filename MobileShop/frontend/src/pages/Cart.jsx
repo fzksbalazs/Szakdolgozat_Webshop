@@ -186,8 +186,8 @@ const Cart = () => {
       } catch {}
     };
     stripeToken && makeRequest();
+  }, [stripeToken, cart.total, history]);
   
-  }, [stripeToken, cart.total, history, cart]);
   return (
     <Container>
       <Announcement />

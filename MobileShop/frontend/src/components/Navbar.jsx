@@ -75,17 +75,19 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const history = useHistory();
+  const quantity = useSelector(state=>state.cart.quantity)
   const user = useSelector(state=> state.user.currentUser);
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     dispatch(logout());
+    
     history.push("/");
     
 
   }
 
 
-  const quantity = useSelector(state=>state.cart.quantity)
+  
   return (
     <Container>
       <Wrapper>

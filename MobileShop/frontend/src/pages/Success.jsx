@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
@@ -7,7 +8,8 @@ const Success = () => {
   const location = useLocation();
   //in Cart.jsx I sent data and cart. Please check that page for the changes.(in video it's only data)
   const data = location.state.stripeData;
-  const cart = location.state.cart;
+  
+  const cart = useSelector((state) => state.cart);
   const currentUser = useSelector((state) => state.user.currentUser);
   const [orderId, setOrderId] = useState(null);
 
@@ -23,8 +25,9 @@ const Success = () => {
           amount: cart.total,
           address: data.billing_details.address,
         });
+        console.log(res.data)
         setOrderId(res.data._id);
-      } catch {}
+      } catch(err) {console.log(err)}
     };
     data && createOrder();
   }, [cart, data, currentUser]);
