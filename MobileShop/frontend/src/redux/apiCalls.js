@@ -1,5 +1,6 @@
-import { loginFailure, loginStart, loginSuccess } from "./userRedux";
-import { publicRequest } from "../requestMethods";
+import { loginFailure, loginStart, loginSuccess, logout } from "./userRedux";
+import { publicRequest, userRequest } from "../requestMethods";
+import { clearCart, removeProduct } from "./cartRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -8,6 +9,32 @@ export const login = async (dispatch, user) => {
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure());
+  }
+};
+
+export const Logout = async (dispatch) => {
+  try {  
+    dispatch(logout());
+    dispatch(clearCart())
+  } catch (err) {
+    console.log(err)
+  }
+};
+
+export const SuccessFullOrder = async (dispatch) => {
+  try {  
+    dispatch(clearCart())
+  } catch (err) {
+    console.log(err)
+  }
+};
+
+export const deleteCartItem = async (id, dispatch) => {
+  try {
+    const res = await userRequest.delete(`/products/${id}`);
+    dispatch(removeProduct(res.data));
+  } catch (err) {
+   
   }
 };
 

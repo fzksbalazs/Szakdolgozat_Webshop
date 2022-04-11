@@ -1,5 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -9,6 +9,8 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
+import { removeProduct } from "../redux/cartRedux";
+import { deleteCartItem } from "../redux/apiCalls";
 
 // const KEY = process.env.REACT_APP_STRIPE;
 const KEY = "pk_test_51KTYWpB1bb1VrKRi8D6WQYnKbZ02r2Jp7evDytQUhbIatPZTSWs7An0BeVDTYzqVDM7DsDXoIcBeZwDmQXRaY2fe00pb87wOeq";
@@ -168,6 +170,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
+  const dispatch = useDispatch()
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -186,7 +189,11 @@ const Cart = () => {
       } catch {}
     };
     stripeToken && makeRequest();
-  }, [stripeToken, cart.total, history]);
+  }, [stripeToken, cart.total, history,]);
+
+  const handleDelete = (id) => {
+    deleteCartItem(id, dispatch);
+  };
   
   return (
     <Container>
@@ -224,9 +231,9 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <Add />
+                    
                     <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
+                    <Remove style={{cursor:"pointer"}} onClick={() => handleDelete(product._id)} />
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}

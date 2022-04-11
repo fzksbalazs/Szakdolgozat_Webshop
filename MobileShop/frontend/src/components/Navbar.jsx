@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Logout } from "../redux/apiCalls";
 
 const Container = styled.div`
   height: 60px;
@@ -79,8 +80,8 @@ const Navbar = () => {
   const user = useSelector(state=> state.user.currentUser);
   const dispatch = useDispatch();
   const handleLogout = (e) => {
-    dispatch(logout());
-    
+    localStorage.clear();
+    Logout(dispatch);   
     history.push("/");
     
 
