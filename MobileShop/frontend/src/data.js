@@ -1,25 +1,26 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://gosport.hu.net/wp-content/uploads/2021/11/ddpai-mini-full-hd-1080p-30fps-videorogzitocontent_6-1024x652.jpg",
-      title: "PRÉMIUM TELEFONOK",
-      desc: "PRÉMIUM TELEFONOK, GARANÁCIÁVAL!",
+      img: "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_Colors_09142021_big.jpg.slideshow-medium.jpg",
+      title: "APPLE IPHONE 13 PRO",
+      desc: "PRÉMIUM APPLE TERMÉKEK, GARANÁCIÁVAL!",
       bg: "linear-gradient(to left, #ece9e6, #ffffff);",
     },
     {
       id: 2,
+      img: "https://images.samsung.com/hu/smartphones/galaxy-s21/buy/02_ImageCarousel/01_FamilyShot/S21_Family_KV_MO_img.jpg",
+      title: "SAMSUNG S21 ULTRA 5G",
+      desc: "PRÉMIUM SAMSUNG TERMÉKEK, GARANCIÁVAL!",
+      bg: "linear-gradient(to left, #ece9e6, #ffffff);",
+    },
+    {
+      id: 3,
       img: "https://cdn.wallpapersafari.com/79/70/74E9fO.jpg",
       title: "LOREM IPSUM",
       desc: "LOREM IPSUM ASD DESADA",
       bg: "linear-gradient(to left, #00c6ff, #0072ff)",
     },
-    {
-      id: 3,
-      img: "https://cdn.prohardver.hu/dl/cnt/2018-11/149070/overview01.jpg",
-      title: "LOREM IPSUM",
-      desc: "LOREM IPSUM ASD DESADA",
-      bg: "linear-gradient(to right, #000428, #004e92);",
-    },
+    
   ];
 
   export const categories = [
