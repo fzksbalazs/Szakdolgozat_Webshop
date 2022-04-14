@@ -1,9 +1,10 @@
 import { Send } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  height: 60vh;
+  height: 40vh;
   background: linear-gradient(to right, #ece9e6, #ffffff);
   display: flex;
   align-items: center;
@@ -17,48 +18,25 @@ const Title = styled.h1`
   ${mobile({fontSize: "40px", textAlign: "center"} )}
 `;
 
-const Desc = styled.div`
-  font-size: 24px;
-  font-weight: 300;
-  margin-bottom: 20px;
-  ${mobile({ textAlign: "center", fontSize: "20px" })}
-
-`;
-
-const InputContainer = styled.div`
-  width: 50%;
-  height: 40px;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid lightgray;
-  ${mobile({ width: "80%" })}
-`;
-
-const Input = styled.input`
-  border: none;
-  flex: 8;
-  padding-left: 20px;
-`;
-
 const Button = styled.button`
-  flex: 1;
-  border: none;
-  background-color: teal;
-  color: white;
+    border:none;
+    padding: 10px;
+    background-color: white;
+    color:darkgreen;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: large;
+    height: 5vh;
+    width: 60vh;
 `;
 
 const Newsletter = () => {
   return (
     <Container>
-      <Title>Ne maradj le az új termékeinről!</Title>
-      <Desc>Tájékoztatást kaphatsz a kedvenc termékeidről:</Desc>
-      <InputContainer>
-        <Input placeholder="Email cim" />
-        <Button>
-          <Send />
-        </Button>
-      </InputContainer>
+      <Title>Ne maradj le a legújabb termékünkről!</Title>
+      <Link to='/product/620c0ae1fe26b92ab706606f'>
+      <Button>iPhone 13 Pro Green Edition</Button>
+      </Link>
     </Container>
   );
 };

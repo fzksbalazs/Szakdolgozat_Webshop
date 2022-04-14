@@ -9,12 +9,14 @@ import {
   } from "@material-ui/icons";
   import styled from "styled-components";
   import { mobile } from "../responsive";
+  import { Link } from "react-router-dom";
+  import ListItemText from "@material-ui/core/ListItemText";
   
   const Container = styled.div`
     display: flex;
     background: #bdc3c7;  /* fallback for old browsers */
     background: linear-gradient(to top, #8b8b8b, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    border-top: 1px solid lightgray;
     ${mobile({ flexDirection: "column" })}
   `;
   
@@ -51,6 +53,7 @@ import {
     flex: 1;
     padding: 20px;
     ${mobile({ display: "none" })}
+   
   `;
   
   const Title = styled.h3`
@@ -67,7 +70,7 @@ import {
   
   const ListItem = styled.li`
     width: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 10px;   
   `;
   
   const Right = styled.div`
@@ -86,17 +89,15 @@ import {
   const Payment = styled.img`
       width: 50%;
   `;
-  
+
   const Footer = () => {
     return (
       <Container>
         <Left>
           <Logo>MOBILE SHOP.</Logo>
           <Desc>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don’t look even slightly believable.
-          </Desc>
+            Hozzáértő cég, hozzáértő emberei kinálják neked a lehető legjobb áron a mai legmodernebb eszközöket. 
+            Legújabb telefonoktól elkezdve a legújabb kiegészitőig itt mindent megtalálsz, ez a MOBILE SHOP.</Desc>
           <SocialContainer>
             <SocialIcon color="3B5999">
               <Facebook />
@@ -113,17 +114,33 @@ import {
           </SocialContainer>
         </Left>
         <Center>
-          <Title>Useful Links</Title>
+          <Title>Hasznos linkek</Title>
           <List>
-            <ListItem>Home</ListItem>
-            <ListItem>Cart</ListItem>
-            <ListItem>Telefonok</ListItem>
-            <ListItem>Laptopok</ListItem>
-            <ListItem>Kiegészitők</ListItem>
-            <ListItem>Fiókom</ListItem>
-            <ListItem>Vásárlás követése</ListItem>
-            <ListItem>Kivánság Lista</ListItem>
-            
+            <ListItem>
+              <Link to='/' style={{textDecoration:"none", color:"black"}}>
+              Főoldal
+              </Link>       
+            </ListItem>
+            <ListItem>
+              <Link to='/cart' style={{textDecoration:"none", color:"black"}}>
+              Kosár
+              </Link>       
+            </ListItem>
+            <ListItem>
+              <Link to='/products/telefon' style={{textDecoration:"none", color:"black"}}>
+              Telefonok
+              </Link>       
+            </ListItem>
+            <ListItem>
+              <Link to='/products/laptop' style={{textDecoration:"none", color:"black"}}>
+              Laptopok
+              </Link>       
+            </ListItem>
+            <ListItem>
+              <Link to='/products/kiegészitők' style={{textDecoration:"none", color:"black"}}>
+              Kiegészitők
+              </Link>       
+            </ListItem>        
           </List>
         </Center>
         <Right>
@@ -135,7 +152,7 @@ import {
             <Phone style={{marginRight:"10px"}}/> 06205555555
           </ContactItem>
           <ContactItem>
-            <MailOutline style={{marginRight:"10px"}} /> fafzekas.balazs1@students.jedlik.eu
+            <MailOutline style={{marginRight:"10px"}} /> fazekas.balazs1@students.jedlik.eu
           </ContactItem>
           <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>
