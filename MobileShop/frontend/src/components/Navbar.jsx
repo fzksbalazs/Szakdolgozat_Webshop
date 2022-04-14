@@ -112,7 +112,7 @@ const Navbar = () => {
           <MenuItem style={user ? {display:"none"} : {}}>SIGN IN</MenuItem>
           </Link>
         
-          <MenuItem style={!user ? {display:"none"} : {}} onClick={(e) => handleLogout(e)}>LOGOUT</MenuItem>
+          <MenuItem style={!user ? {display:"none"} : {}} onClick={(e) => handleLogout(e)}>KIJELENTKEZÉS</MenuItem>
           <Link to="/cart">
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">

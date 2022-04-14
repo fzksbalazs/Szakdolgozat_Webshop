@@ -12,6 +12,9 @@ import {
   
   const Container = styled.div`
     display: flex;
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: linear-gradient(to top, #8b8b8b, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     ${mobile({ flexDirection: "column" })}
   `;
   

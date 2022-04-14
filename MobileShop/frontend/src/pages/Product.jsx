@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Newsletter from "../components/Newsletter";
+
 import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -25,9 +25,14 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
+  min-width:600px;
+  max-width: 650px;
+  max-height: 600px;
+  max-height: 650px;
+  border: 1px solid lightgray;
+  padding: 10px;
+
+  object-fit: contain;
   ${mobile({ height: "40vh" })}
 `;
 
@@ -43,6 +48,8 @@ const Title = styled.h1`
 
 const Desc = styled.p`
   margin: 20px 0px;
+  text-align: justify;
+  line-height: 175%;
 `;
 
 const Price = styled.span`
@@ -202,7 +209,7 @@ const Product = () => {
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <Newsletter />
+      
       <Footer />
     </Container>
   );
