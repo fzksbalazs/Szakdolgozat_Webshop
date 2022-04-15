@@ -93,7 +93,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+          <Language>HU</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
@@ -106,10 +106,10 @@ const Navbar = () => {
         </Center>
         <Right>
          <Link style={{textDecoration: 'none'}} to={'/register'}>
-          <MenuItem  style={user ? {display:"none"} : {}}>REGISTER</MenuItem>
+          <MenuItem  style={user ? {display:"none"} : {}}>REGISZTRÁCIÓ</MenuItem>
           </Link >
           <Link style={{textDecoration: 'none'}} to={'/login'}>
-          <MenuItem style={user ? {display:"none"} : {}}>SIGN IN</MenuItem>
+          <MenuItem style={user ? {display:"none"} : {}}>BEJELENTKEZÉS</MenuItem>
           </Link>
         
           <MenuItem style={!user ? {display:"none"} : {}} onClick={(e) => handleLogout(e)}>KIJELENTKEZÉS</MenuItem>

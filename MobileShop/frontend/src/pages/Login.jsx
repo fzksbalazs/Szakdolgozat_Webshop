@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
+  text-align: center;
 `;
 
 const Form = styled.form`
@@ -44,6 +45,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+
   width: 40%;
   border: none;
   padding: 15px 20px;
@@ -62,10 +64,16 @@ const Link = styled.a`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
+  text-align: center;
 `;
 
 const Error = styled.span`
   color: red;
+`;
+
+const Middle = styled.div`
+  text-align: center;
+  padding: 1px;
 `;
 
 const Login = () => {
@@ -81,15 +89,18 @@ const Login = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>SIGN IN</Title>
+        <Title>BEJELENTKEZÉS</Title>
         <Form>
-          <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
-          <Input type={"password"} placeholder="password"  onChange={(e) => setPassword(e.target.value)} />
-          <Button  onClick={handleClick} >LOGIN</Button>
+          <Input placeholder="felhasználónév" onChange={(e) => setUsername(e.target.value)} />
+          <Input type={"password"} placeholder="jelszó"  onChange={(e) => setPassword(e.target.value)} />
+          <Middle>
+          <Button  onClick={handleClick} >BEJELENTKEZÉS</Button>
+          </Middle>
           {error && <Error>Something went wrong...</Error>}
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link>ELFELEJTETTE A JELSZAVÁT?</Link>
           
-          <Link href="/register">CREATE A NEW ACCOUNT</Link>
+          <Link href="/register">FIÓK LÉTREHOZÁSA</Link>
+
         </Form>
       </Wrapper>
     </Container>

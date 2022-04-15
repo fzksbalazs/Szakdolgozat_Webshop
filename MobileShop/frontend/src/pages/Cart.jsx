@@ -42,7 +42,7 @@ const Image = styled.img`
 `;
 
 const TopButton = styled.button`
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
   font-weight: 600;
   cursor: pointer;
   border: ${(props) => props.type === "filled" && "none"};
@@ -200,14 +200,14 @@ const Cart = () => {
       <Announcement />
       <Navbar />
       <Wrapper>
-        <Title>YOUR BAG</Title>
+        <Title>KOSÁR TARTALMA</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton>FOLYTATÁS</TopButton>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Termékek (2)</TopText>
+            <TopText>Kivánságlistád (0)</TopText>
           </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+          <TopButton type="filled">MEGRENDELÉS</TopButton>
         </Top>
         <Bottom>
           <Info>
@@ -217,15 +217,15 @@ const Cart = () => {
                   <Image src={product.img} />
                   <Details>
                     <ProductName>
-                      <b>Product:</b> {product.title}
+                      <b>Termék neve:</b> {product.title}
                     </ProductName>
                     <ProductId>
-                      <b>ID:</b> {product._id}
+                      <b>Termék azonosító:</b> {product._id}
                     </ProductId>
-                    <b>Color:</b>
+                    <b>Válaszott szín:</b>
                     <ProductColor color={product.color} />
                     <ProductSize>
-                      <b>Storage:</b> {product.storage}
+                      <b>Választott tárhely (Gb):</b> {product.storage}
                     </ProductSize>
                   </Details>
                 </ProductDetail>
@@ -244,21 +244,21 @@ const Cart = () => {
             <Hr />
           </Info>
           <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryTitle>RENDELÉS ÖSSZEGZÉSE</SummaryTitle>
             <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemText>Termékek ára</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText>Estimated Shipping</SummaryItemText>
+              <SummaryItemText>Szállítási költség</SummaryItemText>
               <SummaryItemPrice>$ 5.90</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemText>Kedvezmény</SummaryItemText>
               <SummaryItemPrice>$ -5.90</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemText>Teljes összeg</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout
@@ -271,7 +271,7 @@ const Cart = () => {
               token={onToken}
               stripeKey={KEY}
             >
-              <Button>CHECKOUT NOW</Button>
+              <Button>MEGRENDELÉS</Button>
             </StripeCheckout>
           </Summary>
         </Bottom>

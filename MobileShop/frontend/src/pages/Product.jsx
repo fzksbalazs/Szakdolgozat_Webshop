@@ -183,7 +183,7 @@ const Product = () => {
           <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
+              <FilterTitle>Szín: </FilterTitle>
           
               {product.color?.map((c) => (
                 <FilterColor color={c} key={c} onClick={() => setColor(c)} />
@@ -191,7 +191,7 @@ const Product = () => {
               
             </Filter>
             <Filter>
-              <FilterTitle>Storage</FilterTitle>
+              <FilterTitle>Tárhely: </FilterTitle>
               <FilterSize onChange={(e) => setStorage(e.target.value)}>
               {product.storage?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
@@ -200,12 +200,12 @@ const Product = () => {
             </Filter>
           </FilterContainer>
           <AddContainer>
-            <AmountContainer>
+          <AmountContainer>
               <Remove style={{cursor:"pointer"}} onClick={() => handleQuantity("dec")} />
               <Amount>{quantity}</Amount>
               <Add style={{cursor:"pointer"}} onClick={() => handleQuantity("inc")} />
-            </AmountContainer>          
-            <Button onClick={handleClick} style = {!user ? {display:"none"} : {}}   >ADD TO CART</Button>
+            </AmountContainer>        
+            <Button onClick={handleClick} style = {!user ? {display:"none"} : {}}   >HOZZÁADÁS A KOSÁRHOZ</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

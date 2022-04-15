@@ -34,7 +34,7 @@ const Newsletter = () => {
   return (
     <Container>
       <Title>Ne maradj le a legújabb termékünkről!</Title>
-      <Link to='/product/620c0ae1fe26b92ab706606f'>
+      <Link to='/product/625980bdf6766d75b191cfd7'>
       <Button>iPhone 13 Pro Green Edition</Button>
       </Link>
     </Container>

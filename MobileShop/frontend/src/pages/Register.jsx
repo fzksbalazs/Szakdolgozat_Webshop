@@ -56,6 +56,7 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
+  margin-top: 5px;
 `;
 
 const Error = styled.span`
@@ -67,6 +68,10 @@ const Link = styled.a`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
+`;
+const Middle = styled.div`
+  text-align: center;
+  padding: 2px;
 `;
 
 
@@ -104,37 +109,43 @@ const Register = () => {
     <Container>
       
       <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
+        <Title>FIÓK LÉTREHOZÁSA</Title>
         <Form onSubmit={handleSubmit}>
           <Input
-            placeholder="username"
+            placeholder="felhasználónév"
             name="username"
             onChange={handleChange}
             value={data.username}
             required
           />
           <Input
-            placeholder="email"
+            placeholder="email cím"
             name="email"
             onChange={handleChange}
             value={data.email}
             required
           />
           <Input
-            placeholder="password"
+            placeholder="jelszó"
             name="password"
             onChange={handleChange}
             value={data.password}
             required
           />
+          <Middle>
           <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
+            A regisztrációval elfogadom az általános felhasználási feltételeket és tisztában vagyok a benne leirtakkal. 
+            <b>
+            <Link href="https://www.pirex.hu/vasarloi-informaciok/altalanos-szerzodesi-feltetelek?gclid=Cj0KCQjwr-SSBhC9ARIsANhzu16iLl-EPADqQne0khH9POJtPkPZGh9RhzrADa-Y3m14f2LnqhrglCwaAmEKEALw_wcB">Tudj meg többet</Link>
+            </b>
             {error && <Error>{error}  </Error>}
           </Agreement>
-          <Button type="submit">CREATE</Button>
+          <Button type="submit">LÉTREHOZÁS</Button>
+          </Middle>
         </Form>
-        <Link href="/login">I ALREADY HAVE AN ACCOUNT</Link>
+        <Middle>
+        <Link href="/login">MÁR VAN FELHASZNÁLÓI FIÓKOM</Link>
+        </Middle>
       </Wrapper>
       
     </Container>

@@ -6,6 +6,7 @@ import {
     Pinterest,
     Room,
     Twitter,
+    YouTube,
   } from "@material-ui/icons";
   import styled from "styled-components";
   import { mobile } from "../responsive";
@@ -100,7 +101,7 @@ import {
             Legújabb telefonoktól elkezdve a legújabb kiegészitőig itt mindent megtalálsz, ez a MOBILE SHOP.</Desc>
           <SocialContainer>
             <SocialIcon color="3B5999">
-              <Facebook />
+              <Facebook/>
             </SocialIcon>
             <SocialIcon color="E4405F">
               <Instagram />
@@ -110,6 +111,9 @@ import {
             </SocialIcon>
             <SocialIcon color="E60023">
               <Pinterest />
+            </SocialIcon>
+            <SocialIcon color="E60023">
+              <YouTube />
             </SocialIcon>
           </SocialContainer>
         </Left>
@@ -144,12 +148,12 @@ import {
           </List>
         </Center>
         <Right>
-          <Title>Contact</Title>
+          <Title>Elérhetőségek</Title>
           <ContactItem>
-            <Room style={{marginRight:"10px"}}/> Győr, Jeldik Ányos 23
+            <Room style={{marginRight:"10px"}}/> Győr, Jeldik Ányos 23.
           </ContactItem>
           <ContactItem>
-            <Phone style={{marginRight:"10px"}}/> 06205555555
+            <Phone style={{marginRight:"10px"}}/> 06 20 555 5555
           </ContactItem>
           <ContactItem>
             <MailOutline style={{marginRight:"10px"}} /> fazekas.balazs1@students.jedlik.eu

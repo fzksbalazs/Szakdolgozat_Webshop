@@ -62,28 +62,29 @@ const ProductList = () => {
       <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
-          <FilterText>Filter Products:</FilterText>
+          <FilterText>TERMÉKEK SZŰRÉSE:</FilterText>
           <Select name="brand" onChange={handleFilters} >
-            <Option disabled  >Brand</Option>
+            <Option disabled>Válasszon márkát</Option>
             <Option>Samsung</Option>
             <Option>Apple</Option>
-            <Option>Asus</Option>
                     
           </Select>
           <Select name="color" onChange={handleFilters}>
-            <Option disabled>Color</Option>
+            <Option disabled>Válasszon színt</Option>
             <Option>white</Option>
             <Option>black</Option>
-            <Option>gray</Option>   
-            <Option>gold</Option>     
+            <Option>blue</Option>   
+            <Option>green</Option>   
+            <Option>gold</Option>   
           </Select>
         </Filter>
         <Filter>
-          <FilterText>Sort Products:</FilterText>
+          <FilterText>RENDEZÉSI KRITÉRIUM:</FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
-            <Option value="newest">Newest</Option>
-            <Option value="asc">Price (asc)</Option>
-            <Option value="desc">Price (desc)</Option>
+            {/* <Option value="newest">Newest</Option> */}
+            <Option disabled>Válasszon</Option>
+            <Option value="asc">Ár szerint növekvő</Option>
+            <Option value="desc">Ár szerint csökkenő</Option>
           </Select>
         </Filter>
       </FilterContainer>
