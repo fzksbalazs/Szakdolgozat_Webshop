@@ -1,4 +1,4 @@
-import { Add, Remove } from "@material-ui/icons";
+
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
@@ -9,8 +9,8 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
-import { removeProduct } from "../redux/cartRedux";
-import { deleteCartItem } from "../redux/apiCalls";
+import { clearCart, } from "../redux/cartRedux";
+import { Link } from "react-router-dom";
 
 // const KEY = process.env.REACT_APP_STRIPE;
 const KEY = "pk_test_51KTYWpB1bb1VrKRi8D6WQYnKbZ02r2Jp7evDytQUhbIatPZTSWs7An0BeVDTYzqVDM7DsDXoIcBeZwDmQXRaY2fe00pb87wOeq";
@@ -26,6 +26,13 @@ const Title = styled.h1`
   font-weight: 300;
   text-align: center;
 `;
+
+const Empty = styled.h1`
+    font-weight: 600;
+    text-align: center;
+    font-size: 45px;
+
+`
 
 const Top = styled.div`
   display: flex;
@@ -49,15 +56,6 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
-`;
-
-const TopTexts = styled.div`
-  ${mobile({ display: "none" })}
-`;
-const TopText = styled.span`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0px 10px;
 `;
 
 const Bottom = styled.div`
@@ -189,10 +187,10 @@ const Cart = () => {
       } catch {}
     };
     stripeToken && makeRequest();
-  }, [stripeToken, cart.total, history,]);
+  }, [stripeToken, cart.total, history, cart]);
 
-  const handleDelete = (id) => {
-    deleteCartItem(id, dispatch);
+  const handleDelete = () => {
+   dispatch(clearCart())
   };
   
   return (
@@ -202,15 +200,15 @@ const Cart = () => {
       <Wrapper>
         <Title>KOSÁR TARTALMA</Title>
         <Top>
-          <TopButton>FOLYTATÁS</TopButton>
-          <TopTexts>
-            <TopText>Termékek (2)</TopText>
-            <TopText>Kivánságlistád (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">MEGRENDELÉS</TopButton>
+        <Link to="/">
+          <TopButton>VÁSÁRLÁS <br /> FOLYTATÁSA</TopButton>       
+          </Link>
+          <TopButton onClick={handleDelete} type="filled">KOSÁR TÖRLÉSE</TopButton>
         </Top>
         <Bottom>
           <Info>
+            <Empty style = {cart.total !== 0  ? {display:"none"} : {}} >A kosár üres!</Empty>
+          
             {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
@@ -230,10 +228,8 @@ const Cart = () => {
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
-                  <ProductAmountContainer>
-                    
-                    <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove style={{cursor:"pointer"}} onClick={() => handleDelete(product._id)} />
+                  <ProductAmountContainer>                   
+                    <ProductAmount>{product.quantity}</ProductAmount>               
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
@@ -259,7 +255,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Teljes összeg</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice >$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout
               name="MOBILE. Shop"
@@ -270,8 +266,8 @@ const Cart = () => {
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
-            >
-              <Button>MEGRENDELÉS</Button>
+            >        
+              <Button style = {cart.total === 0  ? {display:"none"} : {}}>MEGRENDELÉS</Button>
             </StripeCheckout>
           </Summary>
         </Bottom>

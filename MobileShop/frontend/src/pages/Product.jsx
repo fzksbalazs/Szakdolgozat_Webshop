@@ -130,6 +130,7 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const disable = true;
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
@@ -162,6 +163,8 @@ const Product = () => {
   };
 
   
+
+  
   const handleClick = () => {
     dispatch(
       addProduct({...product, quantity, color, storage})
@@ -192,10 +195,11 @@ const Product = () => {
             </Filter>
             <Filter>
               <FilterTitle>Tárhely: </FilterTitle>
-              <FilterSize onChange={(e) => setStorage(e.target.value)}>
+              <FilterSize   onChange={(e) => setStorage(e.target.value)}>
               {product.storage?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
+                <FilterSizeOption defaultChecked onChange={disable === true} style={disable ? {display:"none"} : {}}  >Kérem válasszon!</FilterSizeOption>
               </FilterSize>
             </Filter>
           </FilterContainer>
@@ -205,7 +209,7 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add style={{cursor:"pointer"}} onClick={() => handleQuantity("inc")} />
             </AmountContainer>        
-            <Button onClick={handleClick} style = {!user ? {display:"none"} : {}}   >HOZZÁADÁS A KOSÁRHOZ</Button>
+            <Button onClick={handleClick} style = {!user  ? {display:"none"} : {}}   >HOZZÁADÁS A KOSÁRHOZ</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

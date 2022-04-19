@@ -1,16 +1,16 @@
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
+
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getUsers } from "../../redux/apiCalls";
 
 export default function UserList() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.users);
-  const [data, setData] = useState(userRows);
+ 
 
   useEffect(() => {
     getUsers(dispatch);
@@ -63,7 +63,7 @@ export default function UserList() {
         disableSelectionOnClick
         columns={columns}
         getRowId={row=> row._id}
-        pageSize={8}
+        pageSize={10}
         checkboxSelection
       />
     </div>

@@ -16,6 +16,10 @@ const Success = (e) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const [orderId, setOrderId] = useState(null);
 
+  const handleDelete = () => {
+    dispatch(clearCart())
+   };
+
   useEffect(() => {
     const createOrder = async () => {
       try {
@@ -32,16 +36,18 @@ const Success = (e) => {
         setOrderId(res.data._id);
         
       } catch(err) {console.log(err)}
+      
     };
-    data && createOrder();
+    data && createOrder() ;
+  
+    
+    
     
   }, [cart, data, currentUser,],
   
   );
 
-  const handleSuccess = () =>  {
-    SuccessFullOrder(dispatch)
-  }
+
   
  
 
@@ -59,7 +65,7 @@ const Success = (e) => {
         ? `Order has been created successfully. Your order number is ${orderId}`
         : `Successfull. Your order is being prepared...`}
         <a href="/">
-      <button   style={{ padding: 10, marginTop: 20 }}>Menjünk a főoldalra</button>
+      <button onClick={handleDelete} style={{ padding: 10, marginTop: 20 }}>Menjünk a főoldalra</button>
       </a>
     </div>
   );

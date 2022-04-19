@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/userRedux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Logout } from "../redux/apiCalls";
 

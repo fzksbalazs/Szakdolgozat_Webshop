@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { login } from "../../redux/apiCalls";
 
 const Login = () => {
@@ -15,7 +15,12 @@ const Login = () => {
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
-    history.push("/welcome")
+    if(admin)
+    { history.push("/welcome")}
+    else {
+
+    }
+   
     
   };
 

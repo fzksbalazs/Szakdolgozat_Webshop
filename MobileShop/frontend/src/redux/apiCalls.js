@@ -1,6 +1,6 @@
 import { loginFailure, loginStart, loginSuccess, logout } from "./userRedux";
-import { publicRequest, userRequest } from "../requestMethods";
-import { clearCart, removeProduct } from "./cartRedux";
+import { publicRequest, } from "../requestMethods";
+import { clearCart, } from "./cartRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -29,14 +29,14 @@ export const SuccessFullOrder = async (dispatch) => {
   }
 };
 
-export const deleteCartItem = async (id, dispatch) => {
-  try {
-    const res = await userRequest.delete(`/products/${id}`);
-    dispatch(removeProduct(res.data));
-  } catch (err) {
+// export const deleteCartItem = async (id, dispatch) => {
+//   try {
+//     const res = await userRequest.delete(`/products/${id}`);
+//     dispatch(removeProduct(res.data));
+//   } catch (err) {
    
-  }
-};
+//   }
+// };
 
 // export const register= async (user, dispatch) => {
 //   dispatch(addUserStart());

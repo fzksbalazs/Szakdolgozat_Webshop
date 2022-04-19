@@ -42,6 +42,7 @@ const Input = styled.input`
   min-width: 40%;
   margin: 10px 0;
   padding: 10px;
+  
 `;
 
 const Button = styled.button`
@@ -91,8 +92,8 @@ const Login = () => {
       <Wrapper>
         <Title>BEJELENTKEZÉS</Title>
         <Form>
-          <Input placeholder="felhasználónév" onChange={(e) => setUsername(e.target.value)} />
-          <Input type={"password"} placeholder="jelszó"  onChange={(e) => setPassword(e.target.value)} />
+          <Input required placeholder="felhasználónév" onChange={(e) => setUsername(e.target.value)} />
+          <Input required type={"password"} placeholder="jelszó"  onChange={(e) => setPassword(e.target.value)} />
           <Middle>
           <Button  onClick={handleClick} >BEJELENTKEZÉS</Button>
           </Middle>
