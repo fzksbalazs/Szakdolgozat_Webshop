@@ -2,11 +2,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import { SuccessFullOrder } from "../redux/apiCalls";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 import { clearCart } from "../redux/cartRedux";
 import { userRequest } from "../requestMethods";
 
+
 const Success = (e) => {
+
+  
   
   const location = useLocation();
   //in Cart.jsx I sent data and cart. Please check that page for the changes.(in video it's only data)
@@ -15,9 +19,12 @@ const Success = (e) => {
   const cart = useSelector((state) => state.cart);
   const currentUser = useSelector((state) => state.user.currentUser);
   const [orderId, setOrderId] = useState(null);
+  const history = useHistory();
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault();
     dispatch(clearCart())
+    history.push("/")
    };
 
   useEffect(() => {
@@ -64,9 +71,9 @@ const Success = (e) => {
       {orderId
         ? `Order has been created successfully. Your order number is ${orderId}`
         : `Successfull. Your order is being prepared...`}
-        <a href="/">
+      
       <button onClick={handleDelete} style={{ padding: 10, marginTop: 20 }}>Menjünk a főoldalra</button>
-      </a>
+     
     </div>
   );
 };

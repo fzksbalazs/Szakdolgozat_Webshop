@@ -75,8 +75,8 @@ export const deleteProduct = async (id, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
-    dispatch(deleteUserSuccess(id));
+     const res = await userRequest.delete(`/users/${id}`);
+    dispatch(deleteUserSuccess(res));
   } catch (err) {
     dispatch(deleteUserFailure());
   }

@@ -11,7 +11,7 @@ import {
   import styled from "styled-components";
   import { mobile } from "../responsive";
   import { Link } from "react-router-dom";
-  import ListItemText from "@material-ui/core/ListItemText";
+
   
   const Container = styled.div`
     display: flex;

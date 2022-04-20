@@ -197,7 +197,7 @@ const Product = () => {
               <FilterTitle>Tárhely: </FilterTitle>
               <FilterSize   onChange={(e) => setStorage(e.target.value)}>
               {product.storage?.map((s) => (
-                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                  <FilterSizeOption key={s}>{s} GB</FilterSizeOption>
                 ))}
                 <FilterSizeOption defaultChecked onChange={disable === true} style={disable ? {display:"none"} : {}}  >Kérem válasszon!</FilterSizeOption>
               </FilterSize>

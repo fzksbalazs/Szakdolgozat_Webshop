@@ -71,13 +71,15 @@ export default function NewProduct() {
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Product</h1>
-      <form className="addProductForm">
+      <form className="addProductForm" onSubmit={handleClick}>
         <div className="addProductItem">
           <label>Image</label>
           <input
             type="file"
             id="file"
             onChange={(e) => setFile(e.target.files[0])}
+            required
+            
           />
         </div>
         <div className="addProductItem">
@@ -87,6 +89,8 @@ export default function NewProduct() {
             type="text"
             placeholder="Apple Airpods"
             onChange={handleChange}
+            required
+            
           />
         </div>
         <div className="addProductItem">
@@ -96,6 +100,8 @@ export default function NewProduct() {
             type="text"
             placeholder="description..."
             onChange={handleChange}
+            required
+            
           />
           </div>
           <div className="addProductItem">
@@ -105,6 +111,8 @@ export default function NewProduct() {
             type="text"
             placeholder="Iphone"
             onChange={handleChange}
+            required
+            
           />
         </div>
         <div className="addProductItem">
@@ -114,20 +122,22 @@ export default function NewProduct() {
             type="number"
             placeholder="100"
             onChange={handleChange}
+            required
+            
           />
         </div>
         <div className="addProductItem">
           <label>Categories</label>
-          <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
+          <input type="text" placeholder="telefon,laptop,kiegeszito" onChange={handleCat} required  />
         </div>
         <div className="addProductItem">
           <label>Stock</label>
-          <select name="inStock" onChange={handleChange}>
+          <select name="inStock" required onChange={handleChange} >
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
         </div>
-        <button onClick={handleClick} className="addProductButton">
+        <button type="submit" className="addProductButton">
           Create
         </button>
       </form>

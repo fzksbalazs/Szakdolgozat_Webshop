@@ -59,12 +59,13 @@ const ProductList = () => {
     <Container>
       <Navbar />
       <Announcement />
-      <Title>{cat}</Title>
+      <Title>{cat.toUpperCase()}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>TERMÉKEK SZŰRÉSE:</FilterText>
           <Select name="brand" onChange={handleFilters} >
             <Option disabled>Válasszon márkát</Option>
+            <Option>Összes</Option>
             <Option>Samsung</Option>
             <Option>Apple</Option>
                     
@@ -82,7 +83,7 @@ const ProductList = () => {
           <FilterText>RENDEZÉSI KRITÉRIUM:</FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
             {/* <Option value="newest">Newest</Option> */}
-            <Option disabled>Válasszon</Option>
+            <Option disabled >Válasszon</Option>
             <Option value="asc">Ár szerint növekvő</Option>
             <Option value="desc">Ár szerint csökkenő</Option>
           </Select>

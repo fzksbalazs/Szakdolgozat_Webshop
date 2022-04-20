@@ -154,7 +154,7 @@ export default function Product() {
         </div>
       </div>
       <div className="productBottom">
-        <form className="productForm">
+        <form className="productForm" onSubmit={handleClick}>
           <div className="productFormLeft">
             <label>Product Name</label>
             <input
@@ -162,6 +162,7 @@ export default function Product() {
               name="title"
               type="text"
               placeholder={product.title}
+              required
             />
             <label>Product Description</label>
             <input
@@ -169,6 +170,7 @@ export default function Product() {
               type="text"
               placeholder={product.desc}
               onChange={handleChange}
+              required
             />
             <label>Categories</label>
           <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
@@ -178,10 +180,11 @@ export default function Product() {
               type="number"
               placeholder={product.price}
               onChange={handleChange}
+              required
             />
             
             <label>In Stock</label>
-            <select name="inStock" onChange={handleChange}>
+            <select name="inStock" onChange={handleChange} required>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
@@ -197,9 +200,10 @@ export default function Product() {
                 id="file"
                 onChange={(e) => setFile(e.target.files[0])}
                 style={{ display: "none" }}
+                required
               />
             </div>
-            <button className="productButton" onClick={handleClick}>Update</button>
+            <button type="submit" className="productButton" >Update</button>
           </div>
         </form>
       </div>
