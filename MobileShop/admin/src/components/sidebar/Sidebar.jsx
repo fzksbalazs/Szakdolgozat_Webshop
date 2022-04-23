@@ -16,7 +16,7 @@ export default function Sidebar() {
             <Link to="/welcome" className="link">
             <li className="sidebarListItem">
               <LineStyle className="sidebarIcon" />
-              Welcome Page
+              Üdvözlő oldal
             </li>
             </Link>        
           </ul>
@@ -24,7 +24,7 @@ export default function Sidebar() {
             <Link to="/analytics" className="link">
             <li className="sidebarListItem">
               <LineStyle className="sidebarIcon" />
-              Analytics
+              Statisztikák
             </li>
             </Link>        
           </ul>
@@ -36,13 +36,13 @@ export default function Sidebar() {
             <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+                Felhasználók
               </li>
             </Link>
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Termékek
               </li>
             </Link>        
           </ul>

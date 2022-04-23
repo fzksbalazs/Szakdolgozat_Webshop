@@ -19,11 +19,11 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">B/M admin</span>
+          <span className="logo">ADMIN OLDAL</span>
         </div>
         <div className="topRight">
          
-         <a onClick={(e) => handleLogout(e)} href="/login"  className="logout">LOGOUT</a>
+         <a onClick={(e) => handleLogout(e)} href="/login"  className="logout">KIJELENTKEZÉS</a>
          
         </div>
       </div>

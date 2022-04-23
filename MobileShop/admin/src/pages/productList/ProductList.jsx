@@ -22,8 +22,8 @@ export default function ProductList() {
     { field: "_id", headerName: "ID", width: 220 },
     {
       field: "product",
-      headerName: "Product",
-      width: 200,
+      headerName: "Termék",
+      width: 300,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -33,21 +33,21 @@ export default function ProductList() {
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 200 },
+    { field: "inStock", headerName: "Raktáron", width: 200 },  
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Termékár",
       width: 160,
     },
     {
       field: "action",
-      headerName: "Action",
-      width: 150,
+      headerName: "Lehetőségek",
+      width: 160,
       renderCell: (params) => {
         return (
           <>
             <Link to={"/product/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+              <button className="productListEdit">Szerkesztés</button>
             </Link>
             <DeleteOutline
               className="productListDelete"

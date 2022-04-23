@@ -123,14 +123,14 @@ export default function Product() {
   return (
     <div className="product">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Product</h1>
+        <h1 className="productTitle">Termék oldal</h1>
         <Link to="/newproduct">
-          <button className="productAddButton">Create</button>
+          <button className="productAddButton">Új termék létrehozása</button>
         </Link>
       </div>
       <div className="productTop">
         <div className="productTopLeft">
-          <Chart data={pStats} dataKey="Sales" title="Sales Performance" />
+          <Chart data={pStats} dataKey="Sales" title="Eladási adatok" />
         </div>
         <div className="productTopRight">
           <div className="productInfoTop">
@@ -139,15 +139,15 @@ export default function Product() {
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
-              <span className="productInfoKey">id:</span>
+              <span className="productInfoKey">ID:</span>
               <span className="productInfoValue">{product._id}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">sales:</span>
+              <span className="productInfoKey">Eladások:</span>
               <span className="productInfoValue">5123</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">in stock:</span>
+              <span className="productInfoKey">Raktáron:</span>
               <span className="productInfoValue">{product.inStock}</span>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function Product() {
       <div className="productBottom">
         <form className="productForm" onSubmit={handleClick}>
           <div className="productFormLeft">
-            <label>Product Name</label>
+            <label>Termék neve</label>
             <input
               onChange={handleChange}
               name="title"
@@ -164,7 +164,7 @@ export default function Product() {
               placeholder={product.title}
               required
             />
-            <label>Product Description</label>
+            <label>Termék leírása</label>
             <input
               name="desc"
               type="text"
@@ -172,9 +172,9 @@ export default function Product() {
               onChange={handleChange}
               required
             />
-            <label>Categories</label>
-          <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
-            <label>Product Price</label>
+            <label>Kategoriája</label>
+          <input type="text" placeholder="telefon" onChange={handleCat} />
+            <label>Termék ára</label>
             <input
               name="price"
               type="number"
@@ -183,10 +183,10 @@ export default function Product() {
               required
             />
             
-            <label>In Stock</label>
+            <label>Készleten van-e?</label>
             <select name="inStock" onChange={handleChange} required>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
+              <option value="true">Igen</option>
+              <option value="false">Nem</option>
             </select>
           </div>
           <div className="productFormRight">
@@ -203,7 +203,7 @@ export default function Product() {
                 required
               />
             </div>
-            <button type="submit" className="productButton" >Update</button>
+            <button type="submit" className="productButton" >Véglegesítés</button>
           </div>
         </form>
       </div>

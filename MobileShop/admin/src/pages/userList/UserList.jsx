@@ -24,7 +24,7 @@ export default function UserList() {
     { field: "_id", headerName: "ID", width: 220 },
     {
       field: "user",
-      headerName: "User",
+      headerName: "Felhasználók",
       width: 200,
       renderCell: (params) => {
         return (
@@ -38,13 +38,13 @@ export default function UserList() {
     { field: "email", headerName: "Email", width: 200 },
     {
       field: "action",
-      headerName: "Action",
-      width: 150,
+      headerName: "Lehetőségek",
+      width: 160,
       renderCell: (params) => {
         return (
           <>
             <Link to={"/user/" + params.row._id}>
-              <button className="userListEdit">Edit</button>
+              <button className="userListEdit">Szerkesztés</button>
             </Link>
             <DeleteOutline
               className="userListDelete"

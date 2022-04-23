@@ -70,10 +70,10 @@ export default function NewProduct() {
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
+      <h1 className="addProductTitle">Termék létrehozása</h1>
       <form className="addProductForm" onSubmit={handleClick}>
         <div className="addProductItem">
-          <label>Image</label>
+          <label>Kép</label>
           <input
             type="file"
             id="file"
@@ -83,7 +83,7 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Title</label>
+          <label>Neve</label>
           <input
             name="title"
             type="text"
@@ -94,7 +94,7 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Description</label>
+          <label>Leírása</label>
           <input
             name="desc"
             type="text"
@@ -105,7 +105,7 @@ export default function NewProduct() {
           />
           </div>
           <div className="addProductItem">
-          <label>Brand</label>
+          <label>Kategoriája</label>
           <input
             name="brand"
             type="text"
@@ -116,7 +116,7 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Price</label>
+          <label>Ára</label>
           <input
             name="price"
             type="number"
@@ -127,18 +127,18 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Categories</label>
+          <label>Kategoriája</label>
           <input type="text" placeholder="telefon,laptop,kiegeszito" onChange={handleCat} required  />
         </div>
         <div className="addProductItem">
-          <label>Stock</label>
+          <label>Készleten van-e?</label>
           <select name="inStock" required onChange={handleChange} >
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="true">Igen</option>
+            <option value="false">Nem</option>
           </select>
         </div>
         <button type="submit" className="addProductButton">
-          Create
+          Létrehozás
         </button>
       </form>
     </div>

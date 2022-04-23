@@ -22,7 +22,7 @@ export default function User() {
   return (
     <div className="user">
       <div className="userTitleContainer">
-        <h1 className="userTitle">Edit User</h1>      
+        <h1 className="userTitle">Felhasználó szerkesztése</h1>      
       </div>
       <div className="userContainer">
         <div className="userShow">
@@ -37,17 +37,17 @@ export default function User() {
             </div>
           </div>
           <div className="userShowBottom">
-            <span className="userShowTitle">Account Details</span>
+            <span className="userShowTitle">Fiók adatai</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
               <span className="userShowInfoTitle">
-                Username: {user.username}
+                Felhasználónév: {user.username}
               </span>
             </div>
             <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
               <span className="userShowInfoTitle">
-                Created at: ({user.createdAt})
+                Létrehozva: ({user.createdAt})
               </span>
             </div>
           </div>
