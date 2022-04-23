@@ -174,8 +174,8 @@ const Product = () => {
 
   return (
     <Container>
+         <Announcement />
       <Navbar />
-      <Announcement />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />
@@ -194,10 +194,10 @@ const Product = () => {
               
             </Filter>
             <Filter>
-              <FilterTitle>Tárhely: </FilterTitle>
-              <FilterSize   onChange={(e) => setStorage(e.target.value)}>
+              <FilterTitle style = {product.storage == 0  ? {display:"none"} : {}}>Tárhely: </FilterTitle>
+              <FilterSize style = {product.storage == 0  ? {display:"none"} : {}}   onChange={(e) => setStorage(e.target.value)}>
               {product.storage?.map((s) => (
-                  <FilterSizeOption key={s}>{s} GB</FilterSizeOption>
+                  <FilterSizeOption  key={s}>{s} GB</FilterSizeOption>
                 ))}
                 <FilterSizeOption defaultChecked onChange={disable === true} style={disable ? {display:"none"} : {}}  >Kérem válasszon!</FilterSizeOption>
               </FilterSize>
