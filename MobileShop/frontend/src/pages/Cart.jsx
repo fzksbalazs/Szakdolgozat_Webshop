@@ -222,7 +222,7 @@ const Cart = () => {
                     </ProductId>
                     <b>Válaszott szín:</b>
                     <ProductColor color={product.color} />
-                    <ProductSize>
+                    <ProductSize style = {product.storage == 0  ? {display:"none"} : {}}>
                       <b>Választott tárhely (Gb):</b> {product.storage}
                     </ProductSize>
                   </Details>
@@ -259,7 +259,7 @@ const Cart = () => {
             </SummaryItem>
             <StripeCheckout
               name="MOBILE. Shop"
-              image="https://avatars.githubusercontent.com/u/1486366?v=4"
+              image="https://github.com/fzksbalazs.png"
               billingAddress
               shippingAddress
               description={`Your total is $${cart.total}`}
