@@ -23,19 +23,6 @@ const userSlice = createSlice({
       state.currentUser = null;
     },
 
-    
-    // addUserStart: (state) => {
-    //   state.isFetching = true;
-    //   state.error = false;
-    // },
-    // addUserSuccess: (state, action) => {
-    //   state.isFetching = false;
-    //   state.products.push(action.payload);
-    // },
-    // addUserFailure: (state) => {
-    //   state.isFetching = false;
-    //   state.error = true;
-    // },
   },
 });
 

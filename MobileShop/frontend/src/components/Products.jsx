@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-// import { popularProducts } from "../data";
 import Product from "./Product";
 import axios from "axios";
 
@@ -22,17 +21,14 @@ const Products = ({ cat, filters, sort }) => {
           cat
             ? `http://localhost:5000/api/products?category=${cat}`
             : "http://localhost:5000/api/products"
-                
-          
         );
-        console.log(res)
-        setProducts(res.data)
+        console.log(res);
+        setProducts(res.data);
       } catch (err) {}
     };
     getProducts();
   }, [cat]);
 
- 
   useEffect(() => {
     cat &&
       setFilteredProducts(

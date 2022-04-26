@@ -110,7 +110,6 @@ const Slider = () => {
                   UGORJUNK A TELEFONOKHOZ
                 </Button>
               </Link>  
-              {/* <Button><link rel="stylesheet" href="http://localhost:3000/products/telefon" />MUTASD</Button> */}
             </InfoContainer>
           </Slide>
         ))}

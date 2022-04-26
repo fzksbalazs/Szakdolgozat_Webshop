@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { userRequest } from "../requestMethods";
 import { mobile } from "../responsive";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Container = styled.div`
@@ -49,7 +49,6 @@ const Agreement = styled.span`
   margin: 20px 0px;
 `;
 
-
 const Button = styled.button`
   width: 40%;
   border: none;
@@ -75,31 +74,22 @@ const Middle = styled.div`
   padding: 2px;
 `;
 
-
-
 const Register = () => {
-
   const [data, setData] = useState({
     username: "",
-		email: "",
-		password: "",
+    email: "",
+    password: "",
   });
   const history = useHistory();
   const [error, setError] = useState("");
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
-  
-  
-    
-  
-
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data: res } = await userRequest.post('/auth/register', data);
+      const { data: res } = await userRequest.post("/auth/register", data);
       console.log(res.message);
       history.push("/login");
     } catch (error) {
@@ -114,9 +104,7 @@ const Register = () => {
   };
 
   return (
-
     <Container>
-      
       <Wrapper>
         <Title>FIÓK LÉTREHOZÁSA</Title>
         <Form onSubmit={handleSubmit}>
@@ -127,11 +115,12 @@ const Register = () => {
             value={data.username}
             required
             pattern="^[A-Za-z0-9]{3,16}$"
-            onInvalid={e => e.target.setCustomValidity('A felhasználó név 3-16 karakterből állhat, és nem tartalmazhat speciális karaktereket!')}
-            onInput={e => e.target.setCustomValidity('')}
-                 
-           
-                     
+            onInvalid={(e) =>
+              e.target.setCustomValidity(
+                "A felhasználó név 3-16 karakterből állhat, és nem tartalmazhat speciális karaktereket!"
+              )
+            }
+            onInput={(e) => e.target.setCustomValidity("")}
           />
           <Error>{}</Error>
           <Input
@@ -141,8 +130,10 @@ const Register = () => {
             onChange={handleChange}
             value={data.email}
             required
-            onInvalid={e => e.target.setCustomValidity('Kérem valós emailt adjon meg!')}
-            onInput={e => e.target.setCustomValidity('')}
+            onInvalid={(e) =>
+              e.target.setCustomValidity("Kérem valós emailt adjon meg!")
+            }
+            onInput={(e) => e.target.setCustomValidity("")}
           />
           <Error></Error>
           <Input
@@ -151,29 +142,32 @@ const Register = () => {
             onChange={handleChange}
             value={data.password}
             required
-            pattern= "^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%^&*]{5,20}$"
-            onInvalid={e => e.target.setCustomValidity('A jelszó 5-20 karakterből állhat, és tartalmaznia kell számot!')}
-            onInput={e => e.target.setCustomValidity('')}
-           
-            
+            pattern="^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%^&*]{5,20}$"
+            onInvalid={(e) =>
+              e.target.setCustomValidity(
+                "A jelszó 5-20 karakterből állhat, és tartalmaznia kell számot!"
+              )
+            }
+            onInput={(e) => e.target.setCustomValidity("")}
           />
           <Error></Error>
           <Middle>
-          <Agreement>
-            A regisztrációval elfogadom az általános felhasználási feltételeket és tisztában vagyok a benne leirtakkal. 
-            <b>
-            <Link href="https://www.pirex.hu/vasarloi-informaciok/altalanos-szerzodesi-feltetelek?gclid=Cj0KCQjwr-SSBhC9ARIsANhzu16iLl-EPADqQne0khH9POJtPkPZGh9RhzrADa-Y3m14f2LnqhrglCwaAmEKEALw_wcB">Tudj meg többet</Link>
-            </b>
-          
-          </Agreement>
-          <Button  type="submit">LÉTREHOZÁS</Button>
+            <Agreement>
+              A regisztrációval elfogadom az általános felhasználási
+              feltételeket és tisztában vagyok a benne leirtakkal.
+              <b>
+                <Link href="https://www.pirex.hu/vasarloi-informaciok/altalanos-szerzodesi-feltetelek?gclid=Cj0KCQjwr-SSBhC9ARIsANhzu16iLl-EPADqQne0khH9POJtPkPZGh9RhzrADa-Y3m14f2LnqhrglCwaAmEKEALw_wcB">
+                  Tudj meg többet
+                </Link>
+              </b>
+            </Agreement>
+            <Button type="submit">LÉTREHOZÁS</Button>
           </Middle>
         </Form>
         <Middle>
-        <Link href="/login">MÁR VAN FELHASZNÁLÓI FIÓKOM</Link>
+          <Link href="/login">MÁR VAN FELHASZNÁLÓI FIÓKOM</Link>
         </Middle>
       </Wrapper>
-      
     </Container>
   );
 };

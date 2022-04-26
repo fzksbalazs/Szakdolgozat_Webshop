@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
@@ -9,11 +8,11 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
-import { clearCart, } from "../redux/cartRedux";
+import { clearCart } from "../redux/cartRedux";
 import { Link } from "react-router-dom";
 
-// const KEY = process.env.REACT_APP_STRIPE;
-const KEY = "pk_test_51KTYWpB1bb1VrKRi8D6WQYnKbZ02r2Jp7evDytQUhbIatPZTSWs7An0BeVDTYzqVDM7DsDXoIcBeZwDmQXRaY2fe00pb87wOeq";
+const KEY =
+  "pk_test_51KTYWpB1bb1VrKRi8D6WQYnKbZ02r2Jp7evDytQUhbIatPZTSWs7An0BeVDTYzqVDM7DsDXoIcBeZwDmQXRaY2fe00pb87wOeq";
 
 const Container = styled.div``;
 
@@ -28,11 +27,10 @@ const Title = styled.h1`
 `;
 
 const Empty = styled.h1`
-    font-weight: 600;
-    text-align: center;
-    font-size: 45px;
-
-`
+  font-weight: 600;
+  text-align: center;
+  font-size: 45px;
+`;
 
 const Top = styled.div`
   display: flex;
@@ -168,7 +166,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -183,16 +181,17 @@ const Cart = () => {
         });
         history.push("/success", {
           stripeData: res.data,
-          products: cart, });
+          products: cart,
+        });
       } catch {}
     };
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, history, cart]);
 
   const handleDelete = () => {
-   dispatch(clearCart())
+    dispatch(clearCart());
   };
-  
+
   return (
     <Container>
       <Announcement />
@@ -200,15 +199,21 @@ const Cart = () => {
       <Wrapper>
         <Title>KOSÁR TARTALMA</Title>
         <Top>
-        <Link to="/">
-          <TopButton>VÁSÁRLÁS <br /> FOLYTATÁSA</TopButton>       
+          <Link to="/">
+            <TopButton>
+              VÁSÁRLÁS <br /> FOLYTATÁSA
+            </TopButton>
           </Link>
-          <TopButton onClick={handleDelete} type="filled">KOSÁR TÖRLÉSE</TopButton>
+          <TopButton onClick={handleDelete} type="filled">
+            KOSÁR TÖRLÉSE
+          </TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Empty style = {cart.total !== 0  ? {display:"none"} : {}} >A kosár üres!</Empty>
-          
+            <Empty style={cart.total !== 0 ? { display: "none" } : {}}>
+              A kosár üres!
+            </Empty>
+
             {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
@@ -222,14 +227,16 @@ const Cart = () => {
                     </ProductId>
                     <b>Válaszott szín:</b>
                     <ProductColor color={product.color} />
-                    <ProductSize style = {product.storage == 0  ? {display:"none"} : {}}>
+                    <ProductSize
+                      style={product.storage == 0 ? { display: "none" } : {}}
+                    >
                       <b>Választott tárhely (Gb):</b> {product.storage}
                     </ProductSize>
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
-                  <ProductAmountContainer>                   
-                    <ProductAmount>{product.quantity}</ProductAmount>               
+                  <ProductAmountContainer>
+                    <ProductAmount>{product.quantity}</ProductAmount>
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
@@ -255,7 +262,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Teljes összeg</SummaryItemText>
-              <SummaryItemPrice >$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout
               name="MOBILE. Shop"
@@ -266,8 +273,10 @@ const Cart = () => {
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
-            >        
-              <Button style = {cart.total === 0  ? {display:"none"} : {}}>MEGRENDELÉS</Button>
+            >
+              <Button style={cart.total === 0 ? { display: "none" } : {}}>
+                MEGRENDELÉS
+              </Button>
             </StripeCheckout>
           </Summary>
         </Bottom>

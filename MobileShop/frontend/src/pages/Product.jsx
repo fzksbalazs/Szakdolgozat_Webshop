@@ -4,14 +4,12 @@ import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-
 import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch, useSelector } from "react-redux";
-
 
 const Container = styled.div``;
 
@@ -26,7 +24,7 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  min-width:600px;
+  min-width: 600px;
   max-width: 650px;
   max-height: 600px;
   max-height: 650px;
@@ -139,11 +137,7 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [storage, setStorage] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector(state=> state.user.currentUser);
-
-
- 
-
+  const user = useSelector((state) => state.user.currentUser);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -163,19 +157,13 @@ const Product = () => {
     }
   };
 
-  
-
-  
   const handleClick = () => {
-    dispatch(
-      addProduct({...product, quantity, color, storage})
-    );
+    dispatch(addProduct({ ...product, quantity, color, storage }));
   };
-  
 
   return (
     <Container>
-         <Announcement />
+      <Announcement />
       <Navbar />
       <Wrapper>
         <ImgContainer>
@@ -188,33 +176,56 @@ const Product = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Szín: </FilterTitle>
-          
+
               {product.color?.map((c) => (
                 <FilterColor color={c} key={c} onClick={() => setColor(c)} />
               ))}
-              
             </Filter>
             <Filter>
-              <FilterTitle style = {product.storage == 0  ? {display:"none"} : {}}>Tárhely: </FilterTitle>
-              <FilterSize style = {product.storage == 0  ? {display:"none"} : {}}   onChange={(e) => setStorage(e.target.value)}>
-              {product.storage?.map((s) => (
-                  <FilterSizeOption  key={s}>{s} GB</FilterSizeOption>
+              <FilterTitle
+                style={product.storage == 0 ? { display: "none" } : {}}
+              >
+                Tárhely:{" "}
+              </FilterTitle>
+              <FilterSize
+                style={product.storage == 0 ? { display: "none" } : {}}
+                onChange={(e) => setStorage(e.target.value)}
+              >
+                {product.storage?.map((s) => (
+                  <FilterSizeOption key={s}>{s} GB</FilterSizeOption>
                 ))}
-                <FilterSizeOption defaultChecked onChange={disable === true} style={disable ? {display:"none"} : {}} >Kérem válasszon!</FilterSizeOption>
+                <FilterSizeOption
+                  defaultChecked
+                  onChange={disable === true}
+                  style={disable ? { display: "none" } : {}}
+                >
+                  Kérem válasszon!
+                </FilterSizeOption>
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
-          <AmountContainer>
-              <Remove style={{cursor:"pointer"}} onClick={() => handleQuantity("dec")} />
+            <AmountContainer>
+              <Remove
+                style={{ cursor: "pointer" }}
+                onClick={() => handleQuantity("dec")}
+              />
               <Amount>{quantity}</Amount>
-              <Add style={{cursor:"pointer"}} onClick={() => handleQuantity("inc")} />
-            </AmountContainer>        
-            <Button onClick={handleClick} style = {!user  ? {display:"none"} : {}}   >HOZZÁADÁS A KOSÁRHOZ</Button>
+              <Add
+                style={{ cursor: "pointer" }}
+                onClick={() => handleQuantity("inc")}
+              />
+            </AmountContainer>
+            <Button
+              onClick={handleClick}
+              style={!user ? { display: "none" } : {}}
+            >
+              HOZZÁADÁS A KOSÁRHOZ
+            </Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      
+
       <Footer />
     </Container>
   );

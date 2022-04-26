@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
-import {mobile} from "../responsive";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100vw;
@@ -42,11 +42,9 @@ const Input = styled.input`
   min-width: 40%;
   margin: 10px 0;
   padding: 10px;
-  
 `;
 
 const Button = styled.button`
-
   width: 40%;
   border: none;
   padding: 15px 20px;
@@ -54,9 +52,9 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
-  &disabled{
-    color:green;
-    cursor:not-allowed;
+  &disabled {
+    color: green;
+    cursor: not-allowed;
   }
 `;
 
@@ -92,16 +90,24 @@ const Login = () => {
       <Wrapper>
         <Title>BEJELENTKEZÉS</Title>
         <Form>
-          <Input required placeholder="felhasználónév" onChange={(e) => setUsername(e.target.value)} />
-          <Input required type={"password"} placeholder="jelszó"  onChange={(e) => setPassword(e.target.value)} />
+          <Input
+            required
+            placeholder="felhasználónév"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            required
+            type={"password"}
+            placeholder="jelszó"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <Middle>
-          <Button  onClick={handleClick} >BEJELENTKEZÉS</Button>
+            <Button onClick={handleClick}>BEJELENTKEZÉS</Button>
           </Middle>
           {error && <Error>Something went wrong...</Error>}
           <Link>ELFELEJTETTE A JELSZAVÁT?</Link>
-          
-          <Link href="/register">FIÓK LÉTREHOZÁSA</Link>
 
+          <Link href="/register">FIÓK LÉTREHOZÁSA</Link>
         </Form>
       </Wrapper>
     </Container>

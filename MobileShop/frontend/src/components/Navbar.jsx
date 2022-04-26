@@ -11,7 +11,6 @@ import { Logout } from "../redux/apiCalls";
 const Container = styled.div`
   height: 60px;
   ${mobile({ height: "70px" })}
-  
 `;
 
 const Wrapper = styled.div`
@@ -72,22 +71,17 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-
 const Navbar = () => {
   const history = useHistory();
-  const quantity = useSelector(state=>state.cart.quantity)
-  const user = useSelector(state=> state.user.currentUser);
+  const quantity = useSelector((state) => state.cart.quantity);
+  const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     localStorage.clear();
-    Logout(dispatch);   
+    Logout(dispatch);
     history.push("/");
-    
+  };
 
-  }
-
-
-  
   return (
     <Container>
       <Wrapper>
@@ -99,25 +93,34 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/" >
-          <Logo >MOBILE SHOP.</Logo>
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
+            <Logo>MOBILE SHOP.</Logo>
           </Link>
         </Center>
         <Right>
-         <Link style={{textDecoration: 'none'}} to={'/register'}>
-          <MenuItem  style={user ? {display:"none"} : {}}>REGISZTRÁCIÓ</MenuItem>
-          </Link >
-          <Link style={{textDecoration: 'none'}} to={'/login'}>
-          <MenuItem style={user ? {display:"none"} : {}}>BEJELENTKEZÉS</MenuItem>
+          <Link style={{ textDecoration: "none" }} to={"/register"}>
+            <MenuItem style={user ? { display: "none" } : {}}>
+              REGISZTRÁCIÓ
+            </MenuItem>
           </Link>
-        
-          <MenuItem style={!user ? {display:"none"} : {}} onClick={(e) => handleLogout(e)}>KIJELENTKEZÉS</MenuItem>
-          <Link to="/cart">
-          <MenuItem>
-            <Badge badgeContent={quantity} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
+          <Link style={{ textDecoration: "none" }} to={"/login"}>
+            <MenuItem style={user ? { display: "none" } : {}}>
+              BEJELENTKEZÉS
+            </MenuItem>
+          </Link>
+
+          <MenuItem
+            style={!user ? { display: "none" } : {}}
+            onClick={(e) => handleLogout(e)}
+          >
+            KIJELENTKEZÉS
           </MenuItem>
+          <Link to="/cart">
+            <MenuItem>
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
           </Link>
         </Right>
       </Wrapper>
