@@ -8,7 +8,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { error } = useSelector((state) => state.user);
   const history = useHistory();
   const admin = useSelector((state) => state.user.currentUser?.isAdmin);
 

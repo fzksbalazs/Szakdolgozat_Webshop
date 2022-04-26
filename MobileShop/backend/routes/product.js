@@ -38,11 +38,6 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 //DELETE
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).json("Product has been deleted...");
@@ -53,7 +48,6 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 //GET PRODUCT
 router.get("/find/:id", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   try {
     const product = await Product.findById(req.params.id);
     res.status(200).json(product);
@@ -66,7 +60,7 @@ router.get("/find/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
-  res.header("Access-Control-Allow-Origin", "*");
+
   try {
     let products;
 

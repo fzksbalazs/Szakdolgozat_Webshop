@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { userRequest } from "../requestMethods";
 import { mobile } from "../responsive";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const Container = styled.div`
   width: 100vw;
@@ -81,7 +80,6 @@ const Register = () => {
     password: "",
   });
   const history = useHistory();
-  const [error, setError] = useState("");
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -97,8 +95,7 @@ const Register = () => {
         error.response &&
         error.response.status >= 400 &&
         error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
+      ) {     
       }
     }
   };

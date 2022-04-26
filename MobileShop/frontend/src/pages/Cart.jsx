@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
