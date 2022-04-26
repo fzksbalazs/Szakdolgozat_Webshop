@@ -29,21 +29,4 @@ export const SuccessFullOrder = async (dispatch) => {
   }
 };
 
-// export const deleteCartItem = async (id, dispatch) => {
-//   try {
-//     const res = await userRequest.delete(`/products/${id}`);
-//     dispatch(removeProduct(res.data));
-//   } catch (err) {
-   
-//   }
-// };
 
-// export const register= async (user, dispatch) => {
-//   dispatch(addUserStart());
-//   try {
-//     const res = await publicRequest.post(`/auth/register`, user);
-//     dispatch(addUserSuccess(res.data));
-//   } catch (err) {
-//     dispatch(addUserFailure());
-//   }
-// };

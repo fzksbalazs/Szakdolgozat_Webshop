@@ -200,7 +200,7 @@ const Product = () => {
               {product.storage?.map((s) => (
                   <FilterSizeOption  key={s}>{s} GB</FilterSizeOption>
                 ))}
-                <FilterSizeOption defaultChecked onChange={disable === true} style={disable ? {display:"none"} : {}}  >Kérem válasszon!</FilterSizeOption>
+                <FilterSizeOption defaultChecked onChange={disable === true} style={disable ? {display:"none"} : {}} >Kérem válasszon!</FilterSizeOption>
               </FilterSize>
             </Filter>
           </FilterContainer>

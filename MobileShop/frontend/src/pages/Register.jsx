@@ -78,7 +78,7 @@ const Middle = styled.div`
 
 
 const Register = () => {
-  const alreadyExist = false;
+
   const [data, setData] = useState({
     username: "",
 		email: "",
@@ -89,19 +89,12 @@ const Register = () => {
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
-  const allUser = useSelector((state) => state.user.users);
+  
   
     
   
 
-  const Check = () =>{
-    for (let index = 0; index < allUser.length; index++) {
-      if (data.username === allUser[index].username) {
-        alert("Ez a felhasználónév már foglalt!")
-      }
-
-  }
-}
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -173,7 +166,7 @@ const Register = () => {
             </b>
           
           </Agreement>
-          <Button onClick={Check} type="submit">LÉTREHOZÁS</Button>
+          <Button  type="submit">LÉTREHOZÁS</Button>
           </Middle>
         </Form>
         <Middle>
