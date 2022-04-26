@@ -12,10 +12,11 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
 
+
 const Container = styled.div`
   display: flex;
-  background: #bdc3c7;
-  background: linear-gradient(to top, #8b8b8b, #ffffff);
+  background: #bdc3c7;  /* fallback for old browsers */
+  background: linear-gradient(to top, #8b8b8b, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-top: 1px solid lightgray;
   ${mobile({ flexDirection: "column" })}
 `;
@@ -53,6 +54,7 @@ const Center = styled.div`
   flex: 1;
   padding: 20px;
   ${mobile({ display: "none" })}
+ 
 `;
 
 const Title = styled.h3`
@@ -69,13 +71,14 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   width: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 10px;   
 `;
 
 const Right = styled.div`
   flex: 1;
   padding: 20px;
   ${mobile({ backgroundColor: "#fff8f8" })}
+
 `;
 
 const ContactItem = styled.div`
@@ -85,7 +88,7 @@ const ContactItem = styled.div`
 `;
 
 const Payment = styled.img`
-  width: 50%;
+    width: 50%;
 `;
 
 const Footer = () => {
@@ -94,13 +97,11 @@ const Footer = () => {
       <Left>
         <Logo>MOBILE SHOP.</Logo>
         <Desc>
-          Hozzáértő cég, hozzáértő emberei kinálják neked a lehető legjobb áron
-          a mai legmodernebb eszközöket. Legújabb telefonoktól elkezdve a
-          legújabb kiegészitőig itt mindent megtalálsz, ez a MOBILE SHOP.
-        </Desc>
+          Hozzáértő cég, hozzáértő emberei kinálják neked a lehető legjobb áron a mai legmodernebb eszközöket. 
+          Legújabb telefonoktól elkezdve a legújabb kiegészitőig itt mindent megtalálsz, ez a MOBILE SHOP.</Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
-            <Facebook />
+            <Facebook/>
           </SocialIcon>
           <SocialIcon color="E4405F">
             <Instagram />
@@ -120,52 +121,45 @@ const Footer = () => {
         <Title>Hasznos linkek</Title>
         <List>
           <ListItem>
-            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-              Főoldal
-            </Link>
+            <Link to='/' style={{textDecoration:"none", color:"black"}}>
+            Főoldal
+            </Link>       
           </ListItem>
           <ListItem>
-            <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
-              Kosár
-            </Link>
+            <Link to='/cart' style={{textDecoration:"none", color:"black"}}>
+            Kosár
+            </Link>       
           </ListItem>
           <ListItem>
-            <Link
-              to="/products/telefon"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              Telefonok
-            </Link>
+            <Link to='/products/telefon' style={{textDecoration:"none", color:"black"}}>
+            Telefonok
+            </Link>       
           </ListItem>
           <ListItem>
-            <Link
-              to="/products/laptop"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              Laptopok
-            </Link>
+            <Link to='/products/laptop' style={{textDecoration:"none", color:"black"}}>
+            Laptopok
+            </Link>       
           </ListItem>
           <ListItem>
-            <Link
-              to="/products/kiegészitők"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              Kiegészitők
-            </Link>
-          </ListItem>
+            <Link to='/products/kiegészitők' style={{textDecoration:"none", color:"black"}}>
+            Kiegészitők
+            </Link>       
+          </ListItem>        
         </List>
       </Center>
       <Right>
         <Title>Elérhetőségek</Title>
         <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> Győr, Jeldik Ányos 23.
+          <Room style={{marginRight:"10px"}}/> Győr, Jeldik Ányos 23.
         </ContactItem>
         <ContactItem>
-          <Phone style={{ marginRight: "10px" }} /> 06 20 555 5555
+          <Phone style={{marginRight:"10px"}}/> 06 20 555 5555
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} />{" "}
-          fazekas.balazs1@students.jedlik.eu
+          <MailOutline style={{marginRight:"10px"}} /> <a href="mailto:fazekas.balazs1@students.jedlik.eu" style={{color:"black"}}>fazekas.balazs1@students.jedlik.eu</a> 
+        </ContactItem>
+        <ContactItem>
+          <MailOutline style={{marginRight:"10px"}} /> <a href="mailto:meronka.patrik@students.jedlik.eu" style={{color:"black"}}>meronka.patrik@students.jedlik.eu</a> 
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>

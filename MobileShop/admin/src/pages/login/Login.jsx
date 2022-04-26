@@ -71,7 +71,6 @@ const Login = () => {
         <h2>BEJELENTKEZÉS</h2>
       </button>
       
-      {error === true && <span >Something went wrong....</span>}
       </div>
     </div>
   );

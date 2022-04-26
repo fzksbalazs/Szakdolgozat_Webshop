@@ -5,6 +5,7 @@ import { sliderItems } from "../data";
 import { mobile } from "../responsive";
 import { Link } from 'react-router-dom';
 
+
 const Container = styled.div`
   width: 100%;
   height: 75vh;
@@ -85,9 +86,9 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1);
     } else {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
     }
   };
 
@@ -105,11 +106,11 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>  
-              <Link to='products/telefon'>
+              <Link to="products/telefon">
                 <Button>
                   UGORJUNK A TELEFONOKHOZ
                 </Button>
-              </Link>  
+              </Link>       
             </InfoContainer>
           </Slide>
         ))}

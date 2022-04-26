@@ -105,7 +105,7 @@ export default function NewProduct() {
           />
           </div>
           <div className="addProductItem">
-          <label>Kategoriája</label>
+          <label>Márkája</label>
           <input
             name="brand"
             type="text"
