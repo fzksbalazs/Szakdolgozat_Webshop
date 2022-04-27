@@ -30,9 +30,11 @@ const Image = styled.img`
   max-height: 650px;
   border: 1px solid lightgray;
   padding: 10px;
-
+ 
+  
   object-fit: contain;
-  ${mobile({ height: "40vh" })}
+  ${mobile({ height: "30vh", minWidth:"275px"})}
+  
 `;
 
 const InfoContainer = styled.div`

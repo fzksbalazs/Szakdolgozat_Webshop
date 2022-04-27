@@ -39,7 +39,7 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
-  ${mobile({ marginLeft: "5px" })}
+  ${mobile({ display:"none" })}
 `;
 
 const Input = styled.input`
@@ -48,8 +48,9 @@ const Input = styled.input`
 `;
 
 const Center = styled.div`
-  flex: 1;
+  flex: 4;
   text-align: center;
+ 
 `;
 
 const Logo = styled.h1`

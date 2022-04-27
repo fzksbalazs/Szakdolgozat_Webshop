@@ -24,12 +24,6 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
-  updateUserStart,
-  updateUserSuccess,
-  updateUserFailure,
-  addUserStart,
-  addUserSuccess,
-  addUserFailure,
 } from "./userRedux"
 
 export const login = async (dispatch, user) => {
@@ -92,26 +86,7 @@ export const updateProduct = async (id, product, dispatch) => {
   }
 };
 
-export const updateUser= async (id, user, dispatch) => {
-  dispatch(updateUserStart());
-  try {
-    const res = await userRequest.put(`/users/${id}`,user)
-    dispatch(updateUserSuccess(res.data ));
-  } catch (err) {
-    dispatch(updateUserFailure());
-  }
-};
 
-
-export const addUser = async (user, dispatch) => {
-  dispatch(addUserStart());
-  try {
-    const res = await userRequest.post(`/auth/register`, user);
-    dispatch(addUserSuccess(res.data));
-  } catch (err) {
-    dispatch(addUserFailure());
-  }
-};
 
 export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
