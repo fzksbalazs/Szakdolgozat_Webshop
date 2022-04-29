@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "abd60e93-f312-473f-981d-f96e97df0f49",
+		"name": "Mobileshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Ákoss\",\r\n    \"email\": \"adminss@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer 546456546zjrt",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Balazs\",\r\n    \"password\": \"Jedlik2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDQxYmI0MGJiMThjMDdkODMzY2Y5ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDQ0MzY0MTEsImV4cCI6MTY0NDY5NTYxMX0.fyoTlNr0qBXmIlkS2wgWLpQtzOvi2JtPnWq3dJtRdHM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDQxZWQ1OTNjOTg0YzI2YTE4ZmQ0YiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDQ0MzcyMTcsImV4cCI6MTY0NDY5NjQxN30.gcohQMAnqdfILW3XyOw5-K7gqpmSmbFLnlRkCmrswXA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"balazsvoltam\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/users/62041ed593c984c26a18fd4b",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"62041ed593c984c26a18fd4b"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/users/find/626969c326cfa5e3d3563c0e",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"find",
+						"626969c326cfa5e3d3563c0e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL USER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER STATS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/users/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE PRODUCT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Apple Watch Series 67\",\r\n    \"desc\" : \"test\",\r\n    \"img\" :\"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/38-alu-space-sport-black-nc-1up?wid=940&hei=1112&fmt=png-alpha&.v=1594318693000\",\r\n    \"categories\" : [\"Apple\", \"kiegészitők\"],\r\n    \"color\" : \"white\",\r\n    \"price\" : 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/products/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIND PRODUCT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Apple Watch Series 67\",\r\n    \"desc\" : \"test\",\r\n    \"img\" :\"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/38-alu-space-sport-black-nc-1up?wid=940&hei=1112&fmt=png-alpha&.v=1594318693000\",\r\n    \"categories\" : [\"Apple\", \"kiegészitők\"],\r\n    \"color\" : \"white\",\r\n    \"price\" : 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/products/find/622128c8e9914d02ac4b6d9a",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"find",
+						"622128c8e9914d02ac4b6d9a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL PRODUCTS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD ORDER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDQyMjM1OTNjOTg0YzI2YTE4ZmQ1YSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0Nzk2OTQwMywiZXhwIjoxNjQ4MjI4NjAzfQ.Or0KNvNWAHq3WGslo6KyJr_3P0_Pemwhh83FFCfmcls",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : \"62041ed593c984c26a18fd4b\",\r\n    \"products\": [\r\n        {\r\n            \"productId\" : \"620c0ae1fe26b92ab706606f\",\r\n            \"quantity\" : 2\r\n        }\r\n       \r\n    ],\r\n    \"amount\": 250,\r\n    \"address\":\"Magyarország\"\r\n\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INCOME",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjk2OWQ5MjZjZmE1ZTNkMzU2M2MxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTA3NzAyNiwiZXhwIjoxNjUxMzM2MjI2fQ.ZafHoUS2B_icvP6gtd6rspNiZx87ASMEe2hbtvvSsN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/orders/income",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders",
+						"income"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
